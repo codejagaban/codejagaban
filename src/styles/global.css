@@ -88,7 +88,7 @@ h3 {
 a {
   text-decoration: none;
   color: #333;
-  border-bottom: 1.5px solid #A78BFA;
+  border-bottom: 2px solid #A78BFA;
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
