@@ -1,7 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import data from "../data/blog.json";
+import { posts } from "../data/blog.json";
 import Card from "../components/Card.astro";
+
+// Define TypeScript interfaces for better type safety
+interface Post {
+  title: string;
+  link: string;
+  date: string;
+  company?: string;
+}
+
+// Group posts by year with proper typing
+const postsByYear: Record<string, Post[]> = {};
+posts.forEach((post: Post) => {
+  if (!postsByYear[post.date]) {
+    postsByYear[post.date] = [];
+  }
+  postsByYear[post.date].push(post);
+});
+
+// Get years and sort them in descending order
+const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 ---
 
 <Layout
@@ -14,18 +34,100 @@ import Card from "../components/Card.astro";
     <div class="container">
       <div class="content">
         <h1>Articles by Trust Jamin</h1>
-        {
-          data.map((post) => (
-            <Card
-              href={post.link}
-              title={post.title}
-              description={post.description}
-              date={post.date}
-              company={post.company}
-            />
-          ))
-        }
+        
+        <div class="accordion">
+          {years.map((year) => (
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <h2>{year}</h2>
+                <span class="accordion-icon">+</span>
+              </div>
+              <div class="accordion-content">
+                {postsByYear[year].map((post) => (
+                  <Card
+                    href={post.link}
+                    title={post.title}
+                    // date={post.date}
+                    company={post.company}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .accordion {
+    width: 100%;
+  }
+  
+  .accordion-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .accordion-header h2 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .accordion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+  }
+  
+  .accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+  }
+  
+  .accordion-item.active .accordion-content {
+    max-height: 2000px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .accordion-item {
+      border-color: #444;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const accordionItems = document.querySelectorAll<HTMLElement>('.accordion-item');
+    
+    // Open the first year by default
+    if (accordionItems.length > 0) {
+      accordionItems[0].classList.add('active');
+    }
+    
+    accordionItems.forEach(item => {
+      const header = item.querySelector<HTMLElement>('.accordion-header');
+      
+      if (header) {
+        header.addEventListener('click', () => {
+          // Toggle active class on the clicked item
+          item.classList.toggle('active');
+        });
+      }
+    });
+  });
+</script>
