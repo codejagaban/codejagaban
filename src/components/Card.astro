@@ -12,8 +12,8 @@ const { href, title, description, date, tags, company } = Astro.props;
 ---
 
 <a class="card" href={href} target="_blank" rel="noopener noreferrer">
-  <h2>{title} – {company && (
-      <span class="company">{company}</span>
+  <h2>{title} {company && (
+      <span class="company"> – {company}</span>
     )}</h2>
   {description && <p>{description}</p>}
 
