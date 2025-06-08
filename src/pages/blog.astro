@@ -111,23 +111,30 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const accordionItems = document.querySelectorAll<HTMLElement>('.accordion-item');
-    
+  // This will run every time the component is mounted, even after navigation
+  function setupAccordion() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
     // Open the first year by default
     if (accordionItems.length > 0) {
       accordionItems[0].classList.add('active');
     }
-    
-    accordionItems.forEach(item => {
-      const header = item.querySelector<HTMLElement>('.accordion-header');
-      
+    Array.from(accordionItems).forEach(item => {
+      const header = item.querySelector('.accordion-header');
       if (header) {
-        header.addEventListener('click', () => {
-          // Toggle active class on the clicked item
+        // Remove existing listeners first to prevent duplicates
+        const newHeader = header.cloneNode(true);
+        if (header.parentNode) {
+          header.parentNode.replaceChild(newHeader, header);
+        }
+        newHeader.addEventListener('click', () => {
           item.classList.toggle('active');
         });
       }
     });
-  });
+  }
+
+  // Run on initial load
+  setupAccordion();
+  // Also run when navigating to this page via view transitions
+  document.addEventListener('astro:page-load', setupAccordion);
 </script>
