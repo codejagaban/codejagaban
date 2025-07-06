@@ -1,5 +1,23 @@
 {
   "posts": [
+      {
+    "title": "Best CDN for video streaming in 2025: Providers compared",
+    "link": "https://uploadcare.com/blog/best-video-cdn-providers/",
+    "date": "2025",
+    "company": "Uploadcare"
+  },
+          {
+    "title": "React image optimization: Techniques to speed up your web apps",
+    "link": "https://uploadcare.com/blog/react-image-optimization-techniques/",
+    "date": "2025",
+    "company": "Uploadcare"
+  },
+        {
+    "title": "How to preload images: HTML and JavaScript methods explained",
+    "link": "https://uploadcare.com/blog/how-to-preload-images-with-javascript-and-html/",
+    "date": "2025",
+    "company": "Uploadcare"
+  },
          {
     "title": "How to create a custom video player in JavaScript and HTML",
     "link": "https://uploadcare.com/blog/how-to-create-a-custom-video-player-in-javascript/",
