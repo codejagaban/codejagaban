@@ -1,373 +1,376 @@
 {
   "posts": [
-      {
-    "title": "Best CDN for video streaming in 2025: Providers compared",
-    "link": "https://uploadcare.com/blog/best-video-cdn-providers/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-          {
-    "title": "React image optimization: Techniques to speed up your web apps",
-    "link": "https://uploadcare.com/blog/react-image-optimization-techniques/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-        {
-    "title": "How to preload images: HTML and JavaScript methods explained",
-    "link": "https://uploadcare.com/blog/how-to-preload-images-with-javascript-and-html/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-         {
-    "title": "How to create a custom video player in JavaScript and HTML",
-    "link": "https://uploadcare.com/blog/how-to-create-a-custom-video-player-in-javascript/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-       {
-    "title": "Using Authentication in Astro",
-    "link": "https://directus.io/docs/tutorials/getting-started/using-authentication-in-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-       {
-    "title": "How to add and customize CSS background image",
-    "link": "https://uploadcare.com/blog/css-background-image-how-to-add-it/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-       {
-    "title": "How to optimize images in Astro: A step-by-step guide",
-    "link": "https://uploadcare.com/blog/how-to-optimize-images-in-astro/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-            {
-    "title": "Rendering Dynamic Blocks Using Astro",
-    "link": "https://directus.io/docs/tutorials/getting-started/rendering-dynamic-blocks-using-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-
-       {
-    "title": "The complete guide to file uploads in Astro applications",
-    "link": "https://uploadcare.com/blog/astro-file-upload/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-     {
-    "title": "What is adaptive bitrate streaming (ABR) and how to use it",
-    "link": "https://uploadcare.com/blog/adaptive-bitrate-streaming-what-is-it/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-         {
-    "title": "Implementing Live Preview in Astro",
-    "link": "https://directus.io/docs/tutorials/getting-started/implementing-live-preview-in-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-  
-            {
-    "title": "Implementing Multilingual Content using Directus and Astro",
-    "link": "https://directus.io/docs/tutorials/getting-started/implementing-multilingual-content-using-directus-and-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-           {
-    "title": "How to optimize images for the Web: Best practice guide",
-    "link": "https://uploadcare.com/blog/how-to-optimize-images-for-web-best-practice-guide/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-   {
-    "title": "Build Forms Dynamically using Directus and Astro",
-    "link": "https://directus.io/docs/tutorials/projects/build-forms-dynamically-using-directus-and-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-         {
-    "title": "A Guide to HTTP Live Streaming (HLS)",
-    "link": "https://uploadcare.com/blog/hls-guide/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-     {
-    "title": "Creating responsive images with srcset",
-    "link": "https://uploadcare.com/blog/api-performance-comparison/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-       {
-    "title": "Build a Realtime Chat App with Directus and Astro",
-    "link": "https://directus.io/docs/tutorials/projects/build-a-realtime-chat-app-using-directus-and-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-  {
-    "title": "Performance comparison: Uploadcare vs traditional REST API upload methods",
-    "link": "https://uploadcare.com/blog/api-performance-comparison/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-   {
-    "title": "Navigating the codec landscape for 2025: AV1, H.264, H.265, VP8 and VP9",
-    "link": "https://uploadcare.com/blog/navigating-codec-landscapes/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-     {
-    "title": "Create a CMS using Directus and Astro",
-    "link": "https://directus.io/docs/tutorials/projects/create-a-cms-using-directus-and-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-
-   {
-    "title": "Adding overlay and watermarks to your images",
-    "link": "https://uploadcare.com/blog/adding-overlay-images/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Enhancing image loading experiences with BlurHash",
-    "link": "https://uploadcare.com/blog/blurhash-images/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Create Dynamic Pages for a CMS using Directus and Astro",
-    "link": "https://directus.io/docs/tutorials/projects/create-dynamic-pages-for-a-cms-using-directus-and-astro",
-    "date": "2025",
-    "company": "Directus"
-  },
-  {
-    "title": "How to upload files with Uploadcare and Node.js",
-    "link": "https://uploadcare.com/blog/file-uploading-nodejs/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to generate PDF thumbnails for the web using Uploadcare",
-    "link": "https://uploadcare.com/blog/generating-pdf-thumbnail/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to automate NSFW image detection with Uploadcare",
-    "link": "https://uploadcare.com/blog/filter-nsfw-content/",
-    "date": "2025",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "AVIF format — should you use it instead of WebP or JPEG?",
-    "link": "https://uploadcare.com/blog/avif-image-format/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Best smart image optimization tool? We tested four services head-to-head",
-    "link": "https://uploadcare.com/blog/best-image-optimization-service/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "UX best practices for designing an intuitive file uploader",
-    "link": "https://uploadcare.com/blog/file-uploader-ux-best-practices/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "File uploader validation guide",
-    "link": "https://uploadcare.com/blog/file-validators/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Malicious File Uploads Detection with Uploadcare's File Scanning",
-    "link": "https://uploadcare.com/blog/malicious-file-detection/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Building an accessible file uploader — A developer's guide",
-    "link": "https://uploadcare.com/blog/file-uploader-accessibility/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to upload files in Svelte with Uploadcare",
-    "link": "https://uploadcare.com/blog/file-uploading-in-svelte/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Introduction to Web Components",
-    "link": "https://uploadcare.com/blog/handling-large-file-uploads/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "What is OKLCH in CSS and why we use it at Uploadcare",
-    "link": "https://uploadcare.com/blog/oklch-in-css/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Handling Large File Uploads - A Developer Guide",
-    "link": "https://uploadcare.com/blog/handling-large-file-uploads/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Image optimization for Next.js applications",
-    "link": "https://uploadcare.com/blog/image-optimization-in-nextjs/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "File uploading in Android with Kotlin and Uploadcare",
-    "link": "https://uploadcare.com/blog/file-uploading-in-android/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to Upload Files in Vue.js with Uploadcare",
-    "link": "https://uploadcare.com/blog/file-uploading-in-vuejs/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to load responsive images with lr-img",
-    "link": "https://uploadcare.com/blog/lr-img-optimization/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Build an image gallery with Uploadcare JS client SDK and Nuxt.js",
-    "link": "https://uploadcare.com/blog/image-gallery-with-nuxtjs/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to upload files using Uploadcare React File Uploader in Next.js",
-    "link": "https://uploadcare.com/blog/file-uploading-in-nextjs/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "How to upload files in Webflow using Uploadcare File Uploader",
-    "link": "https://uploadcare.com/blog/file-uploading-in-webflow/",
-    "date": "2024",
-    "company": "Uploadcare"
-  },
-  {
-    "title": "Build an E-commerce Website With Directus and Next.js",
-    "link": "https://docs.directus.io/blog/build-an-e-commerce-website-with-directus-and-next-js.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "Deploying Directus to Render.com",
-    "link": "https://blog.jamin.sh/how-to-deploy-directus-to-rendercom",
-    "date": "2024",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "Building a Hotel Booking System with Directus, Next.js, and Stripe",
-    "link": "https://docs.directus.io/blog/building-a-hotel-booking-system-with-directus-next-js-and-stripe.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "Deploying Directus to Google Cloud Platform with Docker",
-    "link": "https://docs.directus.io/blog/deploying-directus-to-google-cloud-platform-with-docker.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "What is cross-browser compatibility, and why should you care?",
-    "link": "https://blog.jamin.sh/what-is-cross-browser-compatibility-and-why-should-you-care",
-    "date": "2024",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "How to build a news aggregator with Next.js, Resend, and Apify",
-    "link": "https://blog.apify.com/how-to-build-a-news-aggregator/",
-    "date": "2024",
-    "company": "Apify"
-  },
-  {
-    "title": "Getting Started with Directus and Remix",
-    "link": "https://docs.directus.io/blog/getting-started-with-directus-and-remix.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "Deploying Directus to AWS EC2 with Docker",
-    "link": "https://docs.directus.io/blog/deploying-directus-to-aws-ec2-with-docker.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "Getting Started with Directus and Astro",
-    "link": "https://docs.directus.io/blog/getting-started-directus-astro.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "Using Directus Auth with NextAuth.js",
-    "link": "https://docs.directus.io/blog/directus-auth-nextauth.html",
-    "date": "2024",
-    "company": "Directus"
-  },
-  {
-    "title": "TypeScript utility types: when and how to use them",
-    "link": "https://blog.apify.com/typescript-utility-types/",
-    "date": "2023",
-    "company": "Apify"
-  },
-  {
-    "title": "Serverless web scraping with TypeScript and AWS Lambda",
-    "link": "https://blog.apify.com/web-scraping-with-typescript-and-aws-lambda/",
-    "date": "2023",
-    "company": "Apify"
-  },
-  {
-    "title": "Improving Your Workflow as a Developer with Bash Aliases",
-    "link": "https://blog.jamin.sh/improving-your-workflow-as-a-developer-with-bash-aliases",
-    "date": "2023",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "Mastering Generics in Typescript",
-    "link": "https://blog.jamin.sh/mastering-generics-in-typescript",
-    "date": "2023",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "The Differences Between Type and Interface in Typescript",
-    "link": "https://blog.jamin.sh/the-differences-between-type-and-interface-in-typescript",
-    "date": "2023",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "How to Send Custom Emails from Netlify: A Step-by-Step Guide",
-    "link": "https://blog.jamin.sh/how-to-send-custom-emails-from-netlify-a-step-by-step-guide",
-    "date": "2023",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "Effectiveness of Developer Relations Programs: A Study of MongoDB, AWS, and Vercel",
-    "link": "https://blog.jamin.sh/effectiveness-of-developer-relations-programs-a-study-of-mongodb-aws-and-vercel",
-    "date": "2023",
-    "company": "Personal Blog"
-  },
-  {
-    "title": "How to Contribute to Community Leaders Cm-Tools Repository!",
-    "link": "https://www.communityleads.africa/blog/how-to-contribute-to-community-leaders-cm-tools-repository",
-    "date": "2023",
-    "company": "Community Leaders Africa"
-  }
-]
+    {
+      "title": "JavaScript upload image tutorial (upload to server & more)",
+      "link": "https://uploadcare.com/blog/javascript-upload-image-tutorial/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Best CDN for video streaming in 2025: Providers compared",
+      "link": "https://uploadcare.com/blog/best-video-cdn-providers/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "React image optimization: Techniques to speed up your web apps",
+      "link": "https://uploadcare.com/blog/react-image-optimization-techniques/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to preload images: HTML and JavaScript methods explained",
+      "link": "https://uploadcare.com/blog/how-to-preload-images-with-javascript-and-html/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to create a custom video player in JavaScript and HTML",
+      "link": "https://uploadcare.com/blog/how-to-create-a-custom-video-player-in-javascript/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Using Authentication in Astro",
+      "link": "https://directus.io/docs/tutorials/getting-started/using-authentication-in-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "How to add and customize CSS background image",
+      "link": "https://uploadcare.com/blog/css-background-image-how-to-add-it/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to optimize images in Astro: A step-by-step guide",
+      "link": "https://uploadcare.com/blog/how-to-optimize-images-in-astro/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Rendering Dynamic Blocks Using Astro",
+      "link": "https://directus.io/docs/tutorials/getting-started/rendering-dynamic-blocks-using-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "The complete guide to file uploads in Astro applications",
+      "link": "https://uploadcare.com/blog/astro-file-upload/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "What is adaptive bitrate streaming (ABR) and how to use it",
+      "link": "https://uploadcare.com/blog/adaptive-bitrate-streaming-what-is-it/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Implementing Live Preview in Astro",
+      "link": "https://directus.io/docs/tutorials/getting-started/implementing-live-preview-in-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "Implementing Multilingual Content using Directus and Astro",
+      "link": "https://directus.io/docs/tutorials/getting-started/implementing-multilingual-content-using-directus-and-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "How to optimize images for the Web: Best practice guide",
+      "link": "https://uploadcare.com/blog/how-to-optimize-images-for-web-best-practice-guide/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Build Forms Dynamically using Directus and Astro",
+      "link": "https://directus.io/docs/tutorials/projects/build-forms-dynamically-using-directus-and-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "A Guide to HTTP Live Streaming (HLS)",
+      "link": "https://uploadcare.com/blog/hls-guide/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Creating responsive images with srcset",
+      "link": "https://uploadcare.com/blog/api-performance-comparison/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Build a Realtime Chat App with Directus and Astro",
+      "link": "https://directus.io/docs/tutorials/projects/build-a-realtime-chat-app-using-directus-and-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "Performance comparison: Uploadcare vs traditional REST API upload methods",
+      "link": "https://uploadcare.com/blog/api-performance-comparison/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Navigating the codec landscape for 2025: AV1, H.264, H.265, VP8 and VP9",
+      "link": "https://uploadcare.com/blog/navigating-codec-landscapes/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Create a CMS using Directus and Astro",
+      "link": "https://directus.io/docs/tutorials/projects/create-a-cms-using-directus-and-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "Adding overlay and watermarks to your images",
+      "link": "https://uploadcare.com/blog/adding-overlay-images/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Enhancing image loading experiences with BlurHash",
+      "link": "https://uploadcare.com/blog/blurhash-images/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Create Dynamic Pages for a CMS using Directus and Astro",
+      "link": "https://directus.io/docs/tutorials/projects/create-dynamic-pages-for-a-cms-using-directus-and-astro",
+      "date": "2025",
+      "company": "Directus"
+    },
+    {
+      "title": "How to upload files with Uploadcare and Node.js",
+      "link": "https://uploadcare.com/blog/file-uploading-nodejs/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to generate PDF thumbnails for the web using Uploadcare",
+      "link": "https://uploadcare.com/blog/generating-pdf-thumbnail/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to automate NSFW image detection with Uploadcare",
+      "link": "https://uploadcare.com/blog/filter-nsfw-content/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "AVIF format — should you use it instead of WebP or JPEG?",
+      "link": "https://uploadcare.com/blog/avif-image-format/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Best smart image optimization tool? We tested four services head-to-head",
+      "link": "https://uploadcare.com/blog/best-image-optimization-service/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "UX best practices for designing an intuitive file uploader",
+      "link": "https://uploadcare.com/blog/file-uploader-ux-best-practices/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "File uploader validation guide",
+      "link": "https://uploadcare.com/blog/file-validators/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Malicious File Uploads Detection with Uploadcare's File Scanning",
+      "link": "https://uploadcare.com/blog/malicious-file-detection/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Building an accessible file uploader — A developer's guide",
+      "link": "https://uploadcare.com/blog/file-uploader-accessibility/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to upload files in Svelte with Uploadcare",
+      "link": "https://uploadcare.com/blog/file-uploading-in-svelte/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Introduction to Web Components",
+      "link": "https://uploadcare.com/blog/handling-large-file-uploads/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "What is OKLCH in CSS and why we use it at Uploadcare",
+      "link": "https://uploadcare.com/blog/oklch-in-css/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Handling Large File Uploads - A Developer Guide",
+      "link": "https://uploadcare.com/blog/handling-large-file-uploads/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Image optimization for Next.js applications",
+      "link": "https://uploadcare.com/blog/image-optimization-in-nextjs/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "File uploading in Android with Kotlin and Uploadcare",
+      "link": "https://uploadcare.com/blog/file-uploading-in-android/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to Upload Files in Vue.js with Uploadcare",
+      "link": "https://uploadcare.com/blog/file-uploading-in-vuejs/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to load responsive images with lr-img",
+      "link": "https://uploadcare.com/blog/lr-img-optimization/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Build an image gallery with Uploadcare JS client SDK and Nuxt.js",
+      "link": "https://uploadcare.com/blog/image-gallery-with-nuxtjs/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to upload files using Uploadcare React File Uploader in Next.js",
+      "link": "https://uploadcare.com/blog/file-uploading-in-nextjs/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to upload files in Webflow using Uploadcare File Uploader",
+      "link": "https://uploadcare.com/blog/file-uploading-in-webflow/",
+      "date": "2024",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Build an E-commerce Website With Directus and Next.js",
+      "link": "https://docs.directus.io/blog/build-an-e-commerce-website-with-directus-and-next-js.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "Deploying Directus to Render.com",
+      "link": "https://blog.jamin.sh/how-to-deploy-directus-to-rendercom",
+      "date": "2024",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "Building a Hotel Booking System with Directus, Next.js, and Stripe",
+      "link": "https://docs.directus.io/blog/building-a-hotel-booking-system-with-directus-next-js-and-stripe.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "Deploying Directus to Google Cloud Platform with Docker",
+      "link": "https://docs.directus.io/blog/deploying-directus-to-google-cloud-platform-with-docker.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "What is cross-browser compatibility, and why should you care?",
+      "link": "https://blog.jamin.sh/what-is-cross-browser-compatibility-and-why-should-you-care",
+      "date": "2024",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "How to build a news aggregator with Next.js, Resend, and Apify",
+      "link": "https://blog.apify.com/how-to-build-a-news-aggregator/",
+      "date": "2024",
+      "company": "Apify"
+    },
+    {
+      "title": "Getting Started with Directus and Remix",
+      "link": "https://docs.directus.io/blog/getting-started-with-directus-and-remix.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "Deploying Directus to AWS EC2 with Docker",
+      "link": "https://docs.directus.io/blog/deploying-directus-to-aws-ec2-with-docker.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "Getting Started with Directus and Astro",
+      "link": "https://docs.directus.io/blog/getting-started-directus-astro.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "Using Directus Auth with NextAuth.js",
+      "link": "https://docs.directus.io/blog/directus-auth-nextauth.html",
+      "date": "2024",
+      "company": "Directus"
+    },
+    {
+      "title": "TypeScript utility types: when and how to use them",
+      "link": "https://blog.apify.com/typescript-utility-types/",
+      "date": "2023",
+      "company": "Apify"
+    },
+    {
+      "title": "Serverless web scraping with TypeScript and AWS Lambda",
+      "link": "https://blog.apify.com/web-scraping-with-typescript-and-aws-lambda/",
+      "date": "2023",
+      "company": "Apify"
+    },
+    {
+      "title": "Improving Your Workflow as a Developer with Bash Aliases",
+      "link": "https://blog.jamin.sh/improving-your-workflow-as-a-developer-with-bash-aliases",
+      "date": "2023",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "Mastering Generics in Typescript",
+      "link": "https://blog.jamin.sh/mastering-generics-in-typescript",
+      "date": "2023",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "The Differences Between Type and Interface in Typescript",
+      "link": "https://blog.jamin.sh/the-differences-between-type-and-interface-in-typescript",
+      "date": "2023",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "How to Send Custom Emails from Netlify: A Step-by-Step Guide",
+      "link": "https://blog.jamin.sh/how-to-send-custom-emails-from-netlify-a-step-by-step-guide",
+      "date": "2023",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "Effectiveness of Developer Relations Programs: A Study of MongoDB, AWS, and Vercel",
+      "link": "https://blog.jamin.sh/effectiveness-of-developer-relations-programs-a-study-of-mongodb-aws-and-vercel",
+      "date": "2023",
+      "company": "Personal Blog"
+    },
+    {
+      "title": "How to Contribute to Community Leaders Cm-Tools Repository!",
+      "link": "https://www.communityleads.africa/blog/how-to-contribute-to-community-leaders-cm-tools-repository",
+      "date": "2023",
+      "company": "Community Leaders Africa"
+    }
+  ]
 }
