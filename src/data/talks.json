@@ -1,19 +1,19 @@
 [
-   {
+  {
     "title": "Bridging the Gap: Documenting APIs for Humans and LLMs",
     "confName": "Open Source Festival 2025",
     "confLink": "https://festival.oscafrica.org/",
-    "slide": "",
+    "slide": "https://speakerdeck.com/codejagaban/bridging-the-gap-documenting-apis-for-humans-and-llms",
     "date": "Aug 14-16, 2025"
   },
-    {
+  {
     "title": "Navigating Traveling Requirements for DevRels in Africa and Beyond",
     "confName": "DevRel Meetup 2025",
     "confLink": "https://www.thedevrelcamp.com/",
-    "slide": "",
+    "slide": "https://speakerdeck.com/codejagaban/navigating-travel-requirements-for-devrels-in-africa",
     "date": "July 12, 2025"
   },
-    {
+  {
     "title": "Building Talent in the Community for Ecosystem Growth",
     "confName": "Africa Tech Community Africa 2025",
     "confLink": "https://atcafrica.com/",
@@ -27,15 +27,13 @@
     "slide": "https://speakerdeck.com/codejagaban/creating-world-class-user-experience-design-for-api-documentation",
     "date": "Aug 23-24, 2024"
   },
-    
-  
   {
-  "title": "Collaborative Development with Jira and GitHub: Tips and Tricks",
-  "confName": "Atlassian Community Event Uyo",
-  "confLink": "https://ace.atlassian.com/events/details/atlassian-uyo-nigeria-presents-collaborative-development-with-jira-and-github-tips-and-tricks/",
-  "slide": "https://speakerdeck.com/codejagaban/collaborative-development-with-jira-and-github",
-  "date": "Nov 17, 2023"
-},
+    "title": "Collaborative Development with Jira and GitHub: Tips and Tricks",
+    "confName": "Atlassian Community Event Uyo",
+    "confLink": "https://ace.atlassian.com/events/details/atlassian-uyo-nigeria-presents-collaborative-development-with-jira-and-github-tips-and-tricks/",
+    "slide": "https://speakerdeck.com/codejagaban/collaborative-development-with-jira-and-github",
+    "date": "Nov 17, 2023"
+  },
   {
     "title": "Leveraging Server-side Rendering for Enhanced Web Performance and SEO",
     "confName": "CityJS Conf Lagos 2023",
@@ -64,5 +62,4 @@
     "slide": "https://speakerdeck.com/codejagaban/jira-and-frontend-development",
     "date": "Jun 17, 2022"
   }
-
 ]
