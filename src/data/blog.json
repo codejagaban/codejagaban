@@ -1,14 +1,62 @@
 {
   "posts": [
     {
-      "title": "JavaScript upload image tutorial (upload to server & more)",
-      "link": "https://uploadcare.com/blog/javascript-upload-image-tutorial/",
+      "title": "How to serve video & audio with Uploadcare video CDN",
+      "link": "https://uploadcare.com/blog/serve-video-audio-uploadcare-video-cdn/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Multipart file uploads explained: Scaling large file transfers with Uploadcare",
+      "link": "https://uploadcare.com/blog/multipart-file-uploads-scaling-large-file-transfers/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to upload files to WordPress — Secure file uploads with Uploadcare",
+      "link": "https://uploadcare.com/blog/how-to-upload-file-to-wordpress/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to create automatic profile pictures (step-by-step guide)",
+      "link": "https://uploadcare.com/blog/automatic-profile-pictures-guide/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Color recognition: Extract dominant colors from any image automatically",
+      "link": "https://uploadcare.com/blog/color-recognition-extract-dominant-colors-from-any-image-automatically/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to compress images for your website without losing quality",
+      "link": "https://uploadcare.com/blog/how-to-compress-images-for-website-without-losing-quality/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to crop images using jQuery: Complete developer guide",
+      "link": "https://uploadcare.com/blog/how-to-crop-images-using-jquery/",
       "date": "2025",
       "company": "Uploadcare"
     },
     {
       "title": "Best CDN for video streaming in 2025: Providers compared",
       "link": "https://uploadcare.com/blog/best-video-cdn-providers/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to upload files in HTML: Complete developer guide",
+      "link": "https://uploadcare.com/blog/html-file-upload/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "JavaScript upload image tutorial (upload to server & more)",
+      "link": "https://uploadcare.com/blog/javascript-upload-image-tutorial/",
       "date": "2025",
       "company": "Uploadcare"
     },
