@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "title": "How to crop an image in HTML and CSS",
+      "link": "https://uploadcare.com/blog/how-to-crop-an-image-in-html-and-css/",
+      "date": "2025",
+      "company": "Uploadcare"
+    },
+    {
       "title": "How to serve video & audio with Uploadcare video CDN",
       "link": "https://uploadcare.com/blog/serve-video-audio-uploadcare-video-cdn/",
       "date": "2025",
