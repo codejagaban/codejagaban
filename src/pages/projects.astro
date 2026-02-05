@@ -1,35 +1,285 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import projects from "../data/projects.json";
-import Card from "../components/Card.astro";
 ---
 
 <Layout
   title="Projects by Trust Jamin"
-  description="Explore project and community initiatives handled  by Trust Jamin"
-  keywords="talks by Trust Jamin, Trust Jamin Okpukoro's, Trust Jamin speaking opportunities, Events featuring Trust Jamin,web development, serverless technologies, Gatsby, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  description="Explore project and community initiatives handled by Trust Jamin"
+  keywords="Trust Jamin projects, web development, TypeScript, Next.js, Gatsby, software engineering"
   image="/projects.png"
 >
-  <section>
+  <section class="projects">
     <div class="container">
-      <div class="content">
-        <h1>Some selected projects I've worked on previously</h1>
+      <div class="projects-header animate-fade-in">
+        <h1>Projects</h1>
+        <p class="intro">
+          A collection of projects I've built and contributed to over the years.
+          From personal experiments to production applications.
+        </p>
+      </div>
+
+      <div class="projects-content">
         {
-          projects.map((project) => (
-            <section id={project.section}>
-              <h2>{project.section} </h2>
-              {project.projects.map((project) => (
-                <Card
-                  href={project.link}
-                  title={project.name}
-                  description={project.description}
-                  tags={project.technologies}
-                />
-              ))}
-            </section>
+          projects.map((section) => (
+            <div
+              class="project-section"
+              id={section.section.replace(/\s+/g, "-").toLowerCase()}
+            >
+              <div class="section-header">
+                <h2>{section.section}</h2>
+                <span class="project-count">
+                  {section.projects.length} projects
+                </span>
+              </div>
+
+              <div class="projects-grid">
+                {section.projects.map((project, index) => (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-card"
+                    style={`--delay: ${index * 0.1}s`}
+                  >
+                    <div class="project-header">
+                      <h3 class="project-name">{project.name}</h3>
+                      <svg
+                        class="arrow-icon"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5 15L15 5M15 5H8M15 5V12"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <p class="project-description">{project.description}</p>
+
+                    <div class="tech-stack">
+                      {project.technologies.slice(0, 5).map((tech: string) => (
+                        <span class="tech-tag">{tech}</span>
+                      ))}
+                      {project.technologies.length > 5 && (
+                        <span class="tech-more">
+                          +{project.technologies.length - 5}
+                        </span>
+                      )}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           ))
         }
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .projects {
+    padding: var(--space-2xl) 0 var(--space-3xl);
+  }
+
+  .projects-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .projects-header h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin: 0;
+  }
+
+  /* Project Sections */
+  .project-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .section-header h2 {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+
+  .project-count {
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    animation: fadeIn 0.4s ease-out forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+  }
+
+  .project-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .project-card:hover .arrow-icon {
+    transform: translate(3px, -3px);
+    color: var(--color-accent);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-md);
+  }
+
+  .project-name {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .arrow-icon {
+    flex-shrink: 0;
+    color: var(--color-text-subtle);
+    transition: all var(--transition-base);
+  }
+
+  .project-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    flex-grow: 1;
+    margin: 0 0 var(--space-lg);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: auto;
+  }
+
+  .tech-tag {
+    font-size: var(--text-xs);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .project-card:hover .tech-tag {
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+  }
+
+  .tech-more {
+    font-size: var(--text-xs);
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--color-text-subtle);
+  }
+
+  /* GitHub CTA */
+  .github-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+    padding: var(--space-xl);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .github-cta p {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    transition: all var(--transition-base);
+  }
+
+  .github-link:hover {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .github-cta {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+  }
+</style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projects by Trust Jamin",
+    "description": "Explore project and community initiatives handled by Trust Jamin",
+    "url": "https://jamin.sh/projects",
+    "author": {
+      "@type": "Person",
+      "name": "Trust Jamin",
+      "url": "https://jamin.sh"
+    }
+  }
+</script>
+
+<parameter name="Complexity">5 </parameter>

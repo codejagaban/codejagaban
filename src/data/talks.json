@@ -1,5 +1,12 @@
 [
   {
+    "title": "Replacing form libraries with native web APIs",
+    "confName": "CityJS Conf London 2026",
+    "confLink": "https://london.cityjsconf.org/",
+    "slide": "https://gitnation.com/contents/bridging-the-gap-documenting-apis-for-humans-and-llm-agents",
+    "date": "Apr 15-17, 2026"
+  },
+  {
     "title": "Bridging the Gap: Documenting APIs for Humans and LLM Agents",
     "confName": "AI Coding Summit 2025",
     "confLink": "https://aicodingsummit.com/",

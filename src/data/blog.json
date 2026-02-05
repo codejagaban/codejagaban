@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "title": "How to integrate Uploadcare with n8n for file uploads",
+      "link": "https://uploadcare.com/blog/n8n-uploadcare-integration/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How to handle large file uploads",
+      "link": "https://dev.to/uploadcare_org/how-to-handle-large-file-uploads-bna",
+      "date": "2025",
+      "company": "Dev.to"
+    },
+    {
       "title": "How to crop an image in HTML and CSS",
       "link": "https://uploadcare.com/blog/how-to-crop-an-image-in-html-and-css/",
       "date": "2025",

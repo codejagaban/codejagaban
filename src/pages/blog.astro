@@ -1,9 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { posts } from "../data/blog.json";
-import Card from "../components/Card.astro";
 
-// Define TypeScript interfaces for better type safety
 interface Post {
   title: string;
   link: string;
@@ -11,7 +9,6 @@ interface Post {
   company?: string;
 }
 
-// Group posts by year with proper typing
 const postsByYear: Record<string, Post[]> = {};
 posts.forEach((post: Post) => {
   if (!postsByYear[post.date]) {
@@ -20,120 +17,367 @@ posts.forEach((post: Post) => {
   postsByYear[post.date].push(post);
 });
 
-// Get years and sort them in descending order
 const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
+const totalPosts = posts.length;
 ---
 
 <Layout
-  title="Blogs posts and articles written by Trust Jamin"
-  description="Explore technical articles and blog post crafted by Trust Jamin Okpukoro"
-  keywords="Trust Jamin, Trust Jamin Okpukoro, Trust Okpukoro, technology insights, programming articles, software development blog,web development, serverless technologies, community management, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  title="Blog posts and articles written by Trust Jamin"
+  description="Explore technical articles and blog posts crafted by Trust Jamin Okpukoro"
+  keywords="Trust Jamin, Trust Jamin Okpukoro, technology insights, programming articles, software development blog, web development, TypeScript, Node.js"
   image="/blog.png"
 >
-  <section>
+  <section class="blog">
     <div class="container">
-      <div class="content">
-        <h1>Articles by Trust Jamin</h1>
-        
-        <div class="accordion">
-          {years.map((year) => (
-            <div class="accordion-item">
-              <div class="accordion-header">
+      <div class="blog-header">
+        <h1>Articles</h1>
+        <p class="stats">{totalPosts} articles across {years.length} years</p>
+      </div>
+
+      <div class="year-nav">
+        {
+          years.map((year) => (
+            <a href={`#year-${year}`} class="year-link">
+              {year}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="articles-container">
+        {
+          years.map((year, yearIndex) => (
+            <div class="year-section" id={`year-${year}`}>
+              <div class="year-header">
                 <h2>{year}</h2>
-                <span class="accordion-icon">+</span>
+                <span class="count">{postsByYear[year].length} articles</span>
               </div>
-              <div class="accordion-content">
-                {postsByYear[year].map((post) => (
-                  <Card
+              <div class="articles-list">
+                {postsByYear[year].map((post, postIndex) => (
+                  <a
                     href={post.link}
-                    title={post.title}
-                    company={post.company}
-                  />
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="article-item"
+                    style={`--animation-delay: ${postIndex * 80}ms`}
+                  >
+                    <div class="article-card">
+                      <div class="article-content">
+                        <span class="article-title">{post.title}</span>
+                        {post.company && (
+                          <span class="article-company">{post.company}</span>
+                        )}
+                      </div>
+                      <span class="article-icon">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M7 17l9.2-9.2M17 17V7H7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </a>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
+          ))
+        }
       </div>
     </div>
   </section>
 </Layout>
 
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Blog posts and articles written by Trust Jamin",
+    "description": "Explore technical articles and blog posts crafted by Trust Jamin Okpukoro",
+    "url": "https://jamin.sh/blog",
+    "author": {
+      "@type": "Person",
+      "name": "Trust Jamin",
+      "url": "https://jamin.sh"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": []
+    }
+  }
+</script>
+
 <style>
-  .accordion {
-    width: 100%;
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  
-  .accordion-item {
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #eaeaea;
+
+  @keyframes shimmer {
+    0% {
+      transform: translateY(-2px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-2px);
+    }
   }
-  
-  .accordion-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+  .blog {
+    padding: var(--space-2xl) 0 var(--space-3xl);
   }
-  
-  .accordion-header h2 {
+
+  .blog-header {
+    margin-bottom: var(--space-2xl);
+    animation: slideInUp 0.5s ease-out;
+  }
+
+  .blog-header h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-sm);
+    background: linear-gradient(
+      135deg,
+      var(--color-text) 0%,
+      var(--color-accent) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stats {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
     margin: 0;
-    font-size: 2rem;
   }
-  
-  .accordion-icon {
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
+
+  /* Year Navigation */
+  .year-nav {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    padding: var(--space-lg) 0;
+    margin-bottom: var(--space-2xl);
+    position: sticky;
+    top: 60px;
+    background: var(--color-bg);
+    background: linear-gradient(
+      180deg,
+      var(--color-bg) 0%,
+      var(--color-bg) 85%,
+      transparent 100%
+    );
+    z-index: 10;
+    animation: slideInUp 0.5s ease-out 0.1s both;
   }
-  
-  .accordion-content {
-    max-height: 0;
+
+  .year-link {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .year-link:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: rgba(167, 139, 250, 0.05);
+    transform: translateY(-2px);
+  }
+
+  /* Year Sections */
+  .year-section {
+    margin-bottom: var(--space-3xl);
+    scroll-margin-top: 120px;
+  }
+
+  .year-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding-bottom: 0;
+  }
+
+  .year-header h2 {
+    font-size: var(--text-2xl);
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .count {
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+    background: var(--color-accent-subtle);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+  }
+
+  /* Articles List */
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .article-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: none;
+    animation: slideInUp 0.5s ease-out var(--animation-delay, 0ms) both;
+  }
+
+  .article-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-md);
+    align-items: center;
+    padding: var(--space-xs);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    position: relative;
     overflow: hidden;
-    transition: max-height 0.6s ease;
   }
-  
-  .accordion-item.active .accordion-icon {
-    transform: rotate(45deg);
+
+  .article-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+    transition: left 0.5s ease;
   }
-  
-  .accordion-item.active .accordion-content {
-    max-height: 2000px;
+
+  .article-item:hover .article-card::before {
+    left: 100%;
+  }
+
+  .article-item:hover .article-card {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(167, 139, 250, 0.1);
+  }
+
+  .article-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .article-title {
+    font-size: var(--text-base);
+    font-weight: 500;
+    transition: color var(--transition-base);
+  }
+
+  .article-item:hover .article-title {
+    color: var(--color-accent);
+  }
+
+  .article-company {
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    padding: 4px 10px;
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .article-icon {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .article-item:hover .article-icon {
+    opacity: 1;
+    color: var(--color-accent);
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .blog {
+      padding: var(--space-xl) 0 var(--space-2xl);
+    }
+
+    .blog-header h1 {
+      font-size: var(--text-2xl);
+    }
+
+    .year-nav {
+      top: 55px;
+      padding: var(--space-md) 0;
+      margin-bottom: var(--space-xl);
+    }
+
+    .year-link {
+      padding: var(--space-xs) var(--space-md);
+      font-size: var(--text-xs);
+    }
+
+    .year-section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .article-card {
+      padding: var(--space-xs);
+      grid-template-columns: 1fr auto;
+      gap: var(--space-sm);
+    }
+
+    .article-title {
+      font-size: var(--text-sm);
+    }
+
+    .article-icon {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
-    .accordion-item {
-      border-color: #444;
+    .blog-header h1 {
+      background: linear-gradient(135deg, #f0f0f0 0%, #a78bfa 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .article-item:hover .article-card {
+      box-shadow: 0 8px 24px rgba(167, 139, 250, 0.15);
     }
   }
 </style>
-
-<script>
-  // This will run every time the component is mounted, even after navigation
-  function setupAccordion() {
-    const accordionItems = document.querySelectorAll('.accordion-item');
-    // Open the first year by default
-    if (accordionItems.length > 0) {
-      accordionItems[0].classList.add('active');
-    }
-    Array.from(accordionItems).forEach(item => {
-      const header = item.querySelector('.accordion-header');
-      if (header) {
-        // Remove existing listeners first to prevent duplicates
-        const newHeader = header.cloneNode(true);
-        if (header.parentNode) {
-          header.parentNode.replaceChild(newHeader, header);
-        }
-        newHeader.addEventListener('click', () => {
-          item.classList.toggle('active');
-        });
-      }
-    });
-  }
-
-  // Run on initial load
-  setupAccordion();
-  // Also run when navigating to this page via view transitions
-  document.addEventListener('astro:page-load', setupAccordion);
-</script>

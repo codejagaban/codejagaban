@@ -1,154 +1,249 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import go from "../images/go.svg";
-import linkedIn from "../images/linkedin.svg";
-import x from "../images/x.svg";
-import github from "../images/github.svg";
-import mail from "../images/mail.svg";
+import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <Layout
   title="Trust Jamin Okpukoro – Senior Technical Writer & Developer Advocate"
   description="Trust Jamin Okpukoro is a senior software engineer, technical writer, and developer advocate focused on building developer-first content, tools, and communities."
-  keywords="code contributions,developer advocate, open source collaboration,technical Writing, community engagement,problem solver,software development,developer-communities, DevRel, trust jamin, trust okpukoro,"
+  keywords="developer advocate, technical writer, DevRel, Trust Jamin, Trust Okpukoro, open source, API documentation, developer communities"
   image="/image.png"
 >
-  <section>
+  <section class="hero">
     <div class="container">
-      <div class="content">
-        <h1><span>Hey 👋🏼, I'm</span> Trust Jamin</h1>
-        <p class="intro">
-          Software engineer deeply interested in bridging connections between
-          developers and state-of-the-art technology. I build <a
-            href="/projects#Engineering Projects">products</a
-          > and write technical documentation and <a href="/blog">tutorials</a>.
-          In my free time, you can find me contributing to <a
-            href="http://github.com/codejagaban"
-            target="_blank"
-            rel="noopener noreferrer">open-source</a
-          > projects or developing <a href="/projects#Engineering Projects"
-            >solutions</a
-          > for challenges I have previously encountered.
-        </p>
-        <p>
-          Presently, I’m learning GoLang <Image
-            src={go}
-            alt="Go Icon"
-            class="goLang"
-          /> and I’m surprised at its inherent simplicity and remarkable performance.
-          As you must have possibly guessed, this portfolio is still a WIP. 🚧
-        </p>
-        <p class="socials">
-          <a
-            href="http://github.com/codejagaban"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <div class="hero-content animate-fade-in">
+        <p class="greeting">Hey 👋🏼, I'm</p>
+        <h1 class="name">Trust Jamin</h1>
+        <p class="role">Senior Technical Writer & Developer Advocate</p>
+
+        <div class="intro">
+          <p>
+            I bridge connections between developers and state-of-the-art
+            technology. I build <a href="/projects">products</a>, write
+            technical documentation and <a href="/blog">tutorials</a>, and
+            contribute to
+            <a
+              href="http://github.com/codejagaban"
+              target="_blank"
+              rel="noopener noreferrer">open-source</a
+            > projects.
+          </p>
+          <p>
+            Currently building <a
+              href="https://github.com/codejagaban/techconfafrica"
+              target="_blank"
+              rel="noopener noreferrer">Tech Conf Africa</a
+            >.
+          </p>
+        </div>
+
+        <div class="cta-section">
+          <a href="/about" class="cta-link">
+            Learn more about me
             <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M15 21.027V18.157C15.0375 17.6801 14.9731 17.2008 14.811 16.7508C14.6489 16.3008 14.3929 15.8904 14.06 15.547C17.2 15.197 20.5 14.007 20.5 8.54698C20.4997 7.1508 19.9627 5.80817 19 4.79698C19.4559 3.57548 19.4236 2.22533 18.91 1.02698C18.91 1.02698 17.73 0.676976 15 2.50698C12.708 1.8858 10.292 1.8858 8 2.50698C5.27 0.676976 4.09 1.02698 4.09 1.02698C3.57638 2.22533 3.54414 3.57548 4 4.79698C3.03013 5.81568 2.49252 7.17044 2.5 8.57698C2.5 13.997 5.8 15.187 8.94 15.577C8.611 15.9169 8.35726 16.3224 8.19531 16.7669C8.03335 17.2114 7.96681 17.685 8 18.157V21.027"
-                class="stroke"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <path
-                d="M8 19.027C5 20 2.5 19.027 1 16.027"
-                class="stroke"
+                d="M6 12L10 8L6 4"
+                stroke="currentColor"
                 stroke-width="1.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"></path>
             </svg>
           </a>
-          <a
-            href="http://x.com/codejagaban"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11.808 8.469L18.88 0H17.204L11.062 7.353L6.158 0H0.5L7.918 11.12L0.5 20H2.176L8.662 12.235L13.842 20H19.5L11.808 8.469ZM9.512 11.217L8.76 10.11L2.78 1.3H5.355L10.181 8.41L10.932 9.517L17.205 18.759H14.631L9.511 11.218L9.512 11.217Z"
-                class="fill"></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/codejagaban/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.2 9.59999V17.6M16.8 17.6V13.6C16.8 12.7513 16.4629 11.9374 15.8627 11.3372C15.2626 10.7371 14.4487 10.4 13.6 10.4C12.7513 10.4 11.9374 10.7371 11.3373 11.3372C10.7371 11.9374 10.4 12.7513 10.4 13.6V17.6V9.59999M6.4 7.19999H8M2.4 0.799988H21.6C22.0243 0.799988 22.4313 0.968559 22.7314 1.26862C23.0314 1.56868 23.2 1.97564 23.2 2.39999V21.6C23.2 22.0243 23.0314 22.4313 22.7314 22.7314C22.4313 23.0314 22.0243 23.2 21.6 23.2H2.4C1.97566 23.2 1.56869 23.0314 1.26863 22.7314C0.968574 22.4313 0.800003 22.0243 0.800003 21.6V2.39999C0.800003 1.97564 0.968574 1.56868 1.26863 1.26862C1.56869 0.968559 1.97566 0.799988 2.4 0.799988Z"
-                class="stroke"
-                stroke-width="1.6"></path>
-            </svg>
-          </a>
-          <a
-            href="mailto:hellotsjamin@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              width="35"
-              height="27"
-              viewBox="0 0 43 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.5713 10.8572L21.1427 16.8572L29.7141 10.8572"
-                class="stroke"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <path
-                d="M4 24.5714V7.42857C4 5.53502 5.53502 4 7.42857 4H34.8571C36.7507 4 38.2857 5.53502 38.2857 7.42857V24.5714C38.2857 26.465 36.7507 28 34.8571 28H7.42857C5.53502 28 4 26.465 4 24.5714Z"
-                class="stroke"
-                stroke-width="1.6"></path>
-            </svg>
-          </a>
-        </p>
+          <SocialLinks size="md" />
+        </div>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  h1 {
-    font-size: 3rem;
+  .hero {
+    padding: var(--space-3xl) 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
   }
-  .goLang {
-    vertical-align: middle;
+
+  .hero-content {
+    max-width: 600px;
   }
-  .socials {
-    margin-top: 50px;
+
+  .greeting {
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xs);
   }
-  .socials a {
+
+  .name {
+    font-size: var(--text-4xl);
+    font-weight: 600;
+    margin: 0;
+    background: linear-gradient(
+      135deg,
+      var(--color-text) 0%,
+      var(--color-text-muted) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .role {
+    font-size: var(--text-xl);
+    color: var(--color-accent);
+    font-weight: 500;
+    margin: var(--space-sm) 0 var(--space-xl);
+  }
+
+  .intro {
+    margin-bottom: var(--space-xl);
+  }
+
+  .intro p {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--color-text-muted);
+  }
+
+  .cta-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    border: none;
+    transition: all var(--transition-base);
+  }
+
+  .cta-link:hover {
+    color: var(--color-accent);
     border: none;
   }
-  svg {
-    vertical-align: middle;
+
+  .cta-link svg {
+    transition: transform var(--transition-fast);
   }
-  .socials a:not(:last-child) {
-    margin-right: 15px;
+
+  .cta-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  /* Highlights Section */
+  .highlights {
+    display: none;
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Feature List - Interactive rows */
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) var(--space-md);
+    border: none;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    text-decoration: none;
+  }
+
+  .feature-item:hover {
+    background: var(--color-bg);
+    border: none;
+  }
+
+  .feature-item:hover .feature-icon {
+    background: var(--color-accent);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .feature-item:hover .feature-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--color-accent);
+  }
+
+  .feature-item:hover h3 {
+    color: var(--color-accent);
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    transition: all var(--transition-base);
+  }
+
+  .feature-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .feature-content h3 {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    margin: 0;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+  }
+
+  .feature-content p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: var(--space-xs) 0 0;
+  }
+
+  .feature-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-subtle);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all var(--transition-base);
+  }
+
+  @media (max-width: 640px) {
+    .feature-item {
+      padding: var(--space-md);
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .feature-arrow {
+      display: none;
+    }
   }
 </style>
 

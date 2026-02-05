@@ -6,70 +6,288 @@ import data from "../data/talks.json";
 <Layout
   title="Talks, Conferences and events Trust Jamin has spoken at"
   description="Explore talks and events crafted by Trust Jamin"
-  keywords="talks by Trust Jamin, Jamin's speaking opportunities, Events featuring Trust Jamin,web development, serverless technologies, Gatsby, DevOps,developer perspectives,TypeScript and Nodejs, software engineering insights."
+  keywords="Trust Jamin talks, speaking opportunities, conferences, DevRel, TypeScript, Node.js"
   image="/talks.png"
 >
-  <section>
+  <section class="talks">
     <div class="container">
-      <div class="content">
-        <h1>Here are some talks and conferences I've spoken at</h1>
-        {
-          data.map((talk) => (
-            <div class="talk">
-              <h2>{talk.title} </h2>
+      <div class="talks-header animate-fade-in">
+        <h1>Speaking</h1>
+        <p class="intro">
+          I speak at conferences and meetups about developer experience,
+          technical writing, and web technologies. Here are some of my recent
+          talks.
+        </p>
+      </div>
 
-              <div class="talk-details">
-                <span class="conf">
+      <div class="talks-list">
+        {
+          data.map((talk, index) => (
+            <div class="talk-item" style={`--delay: ${index * 0.05}s`}>
+              <div class="talk-date">
+                <span class="date-text">{talk.date}</span>
+              </div>
+              <div class="talk-content">
+                <h2 class="talk-title">{talk.title}</h2>
+                <div class="talk-meta">
                   <a
                     href={talk.confLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    class="conference-link"
                   >
                     {talk.confName}
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path></svg>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                        fill="currentColor"
+                      />
+                    </svg>
                   </a>
-                </span>
-                <span>
-                  <a
-                    href={talk.slide}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    slide
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z" fill="currentColor"></path></svg>
-                  </a>
-                </span>
+                  {talk.slide && (
+                    <a
+                      href={talk.slide}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="slide-link"
+                    >
+                      View slides
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
-              <p class="small">{talk.date}</p>
             </div>
           ))
         }
+      </div>
+
+      <div class="invite-section">
+        <h2>Want me to speak at your event?</h2>
+        <p>I'd love to share my experiences with your community.</p>
+        <a href="mailto:hellotsjamin@gmail.com" class="invite-cta">
+          Get in touch
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 12L10 8L6 4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .talk {
-    padding: 10px 0;
-    margin: 5px 0;
+  .talks {
+    padding: var(--space-2xl) 0 var(--space-3xl);
   }
 
-  .conf  a{
-    /* border: none; */
-    margin-right: 50px;
+  .talks-header {
+    margin-bottom: var(--space-2xl);
   }
-  h2 {
-    font-size: 1.7rem;
+
+  .talks-header h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
   }
-  p {
-    padding: 0.3rem 0;
-    line-height: 1.8;
+
+  .intro {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    max-width: 500px;
+    margin: 0;
   }
-  .small {
-    font-size: 1.4rem;
+
+  /* Talks List - Timeline Style */
+  .talks-list {
+    position: relative;
+    padding-left: var(--space-2xl);
   }
-  svg {
-    margin-left: 5px;
+
+  .talks-list::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-accent),
+      var(--color-border)
+    );
+    border-radius: var(--radius-full);
+  }
+
+  .talk-item {
+    position: relative;
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--color-border);
+    animation: fadeIn 0.4s ease-out forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+  }
+
+  .talk-item:last-child {
+    border-bottom: none;
+  }
+
+  .talk-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * var(--space-2xl) - 4px);
+    top: calc(var(--space-lg) + 8px);
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    border: 2px solid var(--color-bg);
+  }
+
+  .talk-date {
+    margin-bottom: var(--space-sm);
+  }
+
+  .date-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+    font-weight: 500;
+  }
+
+  .talk-title {
+    font-size: var(--text-lg);
+    margin: 0 0 var(--space-sm);
+    line-height: 1.4;
+  }
+
+  .talk-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .conference-link,
+  .slide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .conference-link:hover,
+  .slide-link:hover {
+    color: var(--color-accent);
+  }
+
+  .slide-link {
+    padding: var(--space-xs) var(--space-md);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-full);
+    border: none;
+  }
+
+  .slide-link:hover {
+    background: var(--color-accent-subtle);
+    border: none;
+  }
+
+  /* Invite Section */
+  .invite-section {
+    margin-top: var(--space-3xl);
+    padding: var(--space-2xl);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .invite-section h2 {
+    font-size: var(--text-xl);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .invite-section p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .invite-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    transition: all var(--transition-base);
+  }
+
+  .invite-cta:hover {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (max-width: 640px) {
+    .talks-list {
+      padding-left: var(--space-lg);
+    }
+
+    .talk-item::before {
+      left: calc(-1 * var(--space-lg) - 4px);
+    }
+
+    .talk-meta {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
   }
 </style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Talks, Conferences and events Trust Jamin has spoken at",
+    "description": "Explore talks and events crafted by Trust Jamin",
+    "url": "https://jamin.sh/talks",
+    "author": {
+      "@type": "Person",
+      "name": "Trust Jamin",
+      "url": "https://jamin.sh"
+    }
+  }
+</script>

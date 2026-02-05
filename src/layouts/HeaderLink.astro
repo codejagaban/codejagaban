@@ -1,26 +1,66 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+interface Props {
+  href: string;
+}
 
-type Props = HTMLAttributes<"a">;
-
-const { href, class: className, ...props } = Astro.props;
-
-const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+const { href } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname;
+const isActive =
+  href === pathname ||
+  href === pathname.replace(/\/$/, "") ||
+  (href !== "/" && pathname.startsWith(href));
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a href={href} class:list={["nav-link", { active: isActive }]}>
   <slot />
 </a>
+
 <style>
-  a {
-    margin-right: 20px;
+  .nav-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
     text-decoration: none;
-    border-bottom: 0;
-    transition: border-bottom 0.5s ease-out;
+    border: none;
+    padding: 0 1rem;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+    position: relative;
   }
 
-  a.active {
-    border-bottom: 1.5px solid #a78bfa;
+  .nav-link:hover {
+    color: var(--color-text);
+    border: none;
+  }
+
+  .nav-link.active {
+    color: var(--color-text);
+  }
+
+  /* Animated underline on hover */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::after {
+    width: 60%;
+  }
+
+  .nav-link.active::after {
+    width: 60%;
+  }
+
+  @media (max-width: 640px) {
+    .nav-link {
+      font-size: var(--text-lg);
+      padding: var(--space-md);
+    }
   }
 </style>

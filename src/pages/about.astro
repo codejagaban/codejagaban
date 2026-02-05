@@ -1,180 +1,211 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 ---
 
 <Layout
   title="About Trust Jamin Okpukoro"
-  description="Learn about Trust Jamin Okpukoro's projects,technical articles, community management endeavors, involvements in open source projects and pieces of information about him."
-  keywords="code contributions,Trust Jamin, Trust Okpukoro, Trust Jamin Okpukoro, developer advocate, open source collaboration,technical Writing, community engagement,problem solver,software development,developer-communities, DevRel"
+  description="Learn about Trust Jamin Okpukoro's projects, technical articles, community management endeavors, involvements in open source projects and pieces of information about him."
+  keywords="Trust Jamin, Trust Okpukoro, Trust Jamin Okpukoro, developer advocate, open source, technical Writing, community engagement, DevRel"
   image="/about.png"
 >
-  <section>
+  <section class="about">
     <div class="container">
-      <div class="content">
+      <div class="about-header animate-fade-in">
         <h1>About me</h1>
-        <p class="intro">
-          Hey 👋🏼, I'm Trust Jamin a software engineer with over 6 years of
-          experience in building products that runs on the web.
+        <p class="lead">
+          Hey 👋🏼, I'm Trust Jamin — a software engineer with over 6 years of
+          experience building products that run on the web.
         </p>
-        <p>
-          Lately, you'll find me either writing a tutorial or documentation
-          (sometimes it's about a bug/fix I encountered) that can help
-          developers use modern tools to build cool applications 🙌🏼
-        </p>
-        <p>
-          I believe constant learning and improvement are the catalysts of
-          personal and professional growth, and they can empower an individual
-          to adapt to change, overcome challenges, and unlock their full
-          potential, so I'm always learning to become the finest version of
-          myself.
-        </p>
-        <p>
-          <!-- My career started in my local developer community, and so I'm a huge
-          fan of building with developer communities. Oftentimes, you'll find me
-          either leading a program or participating as one of the organizers to
-          help create a good experience for developer-focused events. -->
-        </p>
-        <p>
-          <a
-            href="mailto:hellotsjamin@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            >shoot me an email
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-                fill="currentColor"></path></svg
+      </div>
+
+      <div class="about-content">
+        <div class="about-story">
+          <p>
+            Lately, you'll find me either writing a tutorial or documentation
+            (sometimes it's about a bug/fix I encountered) that can help
+            developers use modern tools to build cool applications 🙌🏼
+          </p>
+          <p>
+            I believe constant learning and improvement are the catalysts of
+            personal and professional growth, and they can empower an individual
+            to adapt to change, overcome challenges, and unlock their full
+            potential — so I'm always learning to become the finest version of
+            myself.
+          </p>
+          <p class="cta">
+            <a href="mailto:hellotsjamin@gmail.com">
+              Shoot me an email
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                  fill="currentColor"></path>
+              </svg>
+            </a>
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Skills & Technologies</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Development</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Astro</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">GoLang</span>
+                <span class="skill-tag">GraphQL</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>Infrastructure</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">MongoDB</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>DevRel & Writing</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Technical Writing</span>
+                <span class="skill-tag">API Documentation</span>
+                <span class="skill-tag">Community Building</span>
+                <span class="skill-tag">Content Strategy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Writing Activities</h2>
+          <p class="section-intro">
+            I write technical content for several platforms and companies:
+          </p>
+          <div class="platform-grid">
+            <a
+              href="https://uploadcare.com/blog/author/trust-jamin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
             >
-          </a>
-        </p>
-        <h2>Skills and technologies</h2>
-        <div class="grid">
-          <ul>
-            <li>Node.js</li>
-            <li>Next.js</li>
-            <li>Docker</li>
-            <li>AWS</li>
-            <li>Astro (this website was built with it)</li>
-            <li>React.js</li>
-            <li>JavaScript/ TypeScript</li>
-            <li>Solidity</li>
-          </ul>
-          <ul>
-            <li>GoLang</li>
-            <li>GraphQL</li>
-            <li>Databases (PostgreSQL, MySQL, MongoDB)</li>
-            <li>Content management systems (CMS)</li>
-            <li>Community building and management</li>
-            <li>Programs management and organization</li>
-            <li>API Documentation</li>
-            <li>Technical Writing</li>
-          </ul>
+              <span class="platform-name">Uploadcare</span>
+              <span class="platform-desc">Developer tutorials & guides</span>
+            </a>
+            <a
+              href="https://docs.directus.io/blog/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-name">Directus</span>
+              <span class="platform-desc">CMS integrations & tutorials</span>
+            </a>
+            <a
+              href="https://blog.apify.com/author/jamin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-name">Apify</span>
+              <span class="platform-desc">Web scraping & automation</span>
+            </a>
+            <a
+              href="https://blog.jamin.sh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-name">Personal Blog</span>
+              <span class="platform-desc">General tech insights</span>
+            </a>
+            <a
+              href="https://dev.to/codejagaban"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-name">Dev.to</span>
+              <span class="platform-desc">Community articles</span>
+            </a>
+            <a
+              href="https://blog.openreplay.com/authors/trust-jamin"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+            >
+              <span class="platform-name">OpenReplay</span>
+              <span class="platform-desc">Frontend development</span>
+            </a>
+          </div>
         </div>
-        <div>
-          <h2>Writing activities</h2>
-          <ul>
-            <li>
+
+        <div class="section">
+          <h2>Community Activities</h2>
+          <div class="community-list">
+            <div class="community-item">
+              <span class="community-role">Co-founder</span>
               <a
-                href="https://blog.jamin.sh/"
-                target="_blank"
-                rel="noopener noreferrer">Personal Blog</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://blog.apify.com/author/jamin/"
-                target="_blank"
-                rel="noopener noreferrer">Apify</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://dev.to/codejagaban"
-                target="_blank"
-                rel="noopener noreferrer">Dev.to</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://uploadcare.com/blog/author/trust-jamin/"
-                target="_blank"
-                rel="noopener noreferrer">Uploadcare</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://plainenglish.io/author/trust-jamin"
-                target="_blank"
-                rel="noopener noreferrer">Plain English</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://docs.directus.io/blog/"
-                target="_blank"
-                rel="noopener noreferrer">Directus</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://blog.openreplay.com/authors/trust-jamin"
-                target="_blank"
-                rel="noopener noreferrer">Open Replay</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h2>Community activities</h2>
-          <ul>
-            <li>
-              Co-founder <a
                 href="https://www.communityleads.africa/"
                 target="_blank"
-                rel="noopener noreferrer">Community Leads Africa</a
+                rel="noopener noreferrer"
               >
-            </li>
-            <!-- <li>
-              Program Manager <a
-                href="https://cmfest.africa/"
-                target="_blank"
-                rel="noopener noreferrer">CMFest Africa</a
-              >
-            </li> -->
-            <li>
-              DevRel Community Lead <a
+                Community Leads Africa
+              </a>
+            </div>
+            <div class="community-item">
+              <span class="community-role">DevRel Community Lead</span>
+              <a
                 href="https://twitter.com/lagosguild"
                 target="_blank"
-                rel="noopener noreferrer">Polygon Guild Lagos</a
+                rel="noopener noreferrer"
               >
-            </li>
-            <li>
-              Community Manager <a
+                Polygon Guild Lagos
+              </a>
+            </div>
+            <div class="community-item">
+              <span class="community-role">Community Manager</span>
+              <a
                 href="http://notion.so/"
                 target="_blank"
-                rel="noopener noreferrer">Notion Lagos</a
+                rel="noopener noreferrer"
               >
-            </li>
-            <li>
-              Champion <a
+                Notion Lagos
+              </a>
+            </div>
+            <div class="community-item">
+              <span class="community-role">Champion</span>
+              <a
                 href="https://www.twilio.com/en-us/champions"
                 target="_blank"
-                rel="noopener noreferrer">Twilio</a
+                rel="noopener noreferrer"
               >
-            </li>
-            <li>
-              Organizer <a
+                Twilio
+              </a>
+            </div>
+            <div class="community-item">
+              <span class="community-role">Organizer</span>
+              <a
                 href="https://gdg.community.dev/gdg-sapele/"
                 target="_blank"
-                rel="noopener noreferrer">GDG Sapele</a
+                rel="noopener noreferrer"
               >
-            </li>
-          </ul>
+                GDG Sapele
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -182,29 +213,202 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
-  section {
-    padding-bottom: 30px;
+  .about {
+    padding: var(--space-2xl) 0 var(--space-3xl);
   }
-  div {
-    margin-bottom: 20px;
+
+  .about-header {
+    margin-bottom: var(--space-2xl);
   }
-  .grid {
+
+  .about-header h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .lead {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .about-story p {
+    font-size: var(--text-base);
+    line-height: 1.8;
+  }
+
+  .cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 500;
+  }
+
+  .section {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section h2 {
+    font-size: var(--text-xl);
+    margin-top: 0;
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-intro {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Skills */
+  .skills-grid {
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr auto;
+    gap: var(--space-xl);
   }
-  @media screen and (max-width: 640px) {
-    .grid {
+
+  .skill-category h3 {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .skill-tag {
+    padding: var(--space-xs) var(--space-md);
+    background: var(--color-bg-hover);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .skill-tag:hover {
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+  }
+
+  /* Platforms */
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .platform-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  .platform-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .platform-name {
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+
+  .platform-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+  }
+
+  /* Community */
+  .community-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .community-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .community-item:last-child {
+    border-bottom: none;
+  }
+
+  .community-role {
+    font-size: var(--text-sm);
+    color: var(--color-text-subtle);
+    min-width: 150px;
+  }
+
+  .community-item a {
+    font-weight: 500;
+  }
+
+  .connect-section {
+    text-align: center;
+    padding: var(--space-2xl);
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-lg);
+  }
+
+  .connect-section h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  @media (max-width: 640px) {
+    .platform-grid {
       grid-template-columns: 1fr;
     }
-  }
-  .grid li {
-    flex: 50%;
-  }
-  h1 {
-    font-size: 3rem;
-  }
-  ul {
-    margin-left: 30px;
+
+    .community-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+
+    .community-role {
+      min-width: auto;
+    }
   }
 </style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Trust Jamin Okpukoro",
+    "url": "https://jamin.sh",
+    "jobTitle": "Senior Technical Writer and Developer Advocate",
+    "description": "Senior software engineer, technical writer, and developer advocate focused on building developer-first content, tools, and communities.",
+    "sameAs": [
+      "https://www.linkedin.com/in/codejagaban",
+      "https://github.com/codejagaban",
+      "https://dev.to/codejagaban",
+      "https://twitter.com/codejagaban"
+    ],
+    "knowsAbout": [
+      "Technical Writing",
+      "Developer Relations",
+      "API Documentation",
+      "Web Development",
+      "TypeScript",
+      "Node.js",
+      "React",
+      "Next.js",
+      "Community Building"
+    ]
+  }
+</script>
