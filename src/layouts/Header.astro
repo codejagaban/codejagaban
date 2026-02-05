@@ -5,9 +5,6 @@ import HeaderLink from "./HeaderLink.astro";
 <header>
   <div class="header-container">
     <nav class="nav">
-      <div class="nav-brand">
-        <a href="/" class="brand-link">TJ</a>
-      </div>
       <div class="nav-links">
         <HeaderLink href="/">home</HeaderLink>
         <HeaderLink href="/about/">about</HeaderLink>
@@ -15,13 +12,6 @@ import HeaderLink from "./HeaderLink.astro";
         <HeaderLink href="/talks/">talks</HeaderLink>
         <HeaderLink href="/projects/">projects</HeaderLink>
       </div>
-      <button
-        class="nav-toggle"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-      >
-        <span class="hamburger"></span>
-      </button>
     </nav>
   </div>
 </header>
@@ -50,141 +40,42 @@ import HeaderLink from "./HeaderLink.astro";
     justify-content: space-between;
   }
 
-  .nav-brand {
-    margin-right: var(--space-xl);
-  }
-
-  .brand-link {
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
-    font-weight: 600;
-    color: var(--color-text);
-    border: none;
-    letter-spacing: -0.02em;
-    transition: color var(--transition-fast);
-  }
-
-  .brand-link:hover {
-    color: var(--color-accent);
-    border: none;
-  }
-
   .nav-links {
     display: flex;
     align-items: center;
     gap: var(--space-lg);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   .nav-toggle {
     display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-sm);
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-fast);
   }
 
   .hamburger {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--color-text);
-    position: relative;
-    transition: all var(--transition-fast);
+    display: none;
   }
 
   .hamburger::before,
   .hamburger::after {
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: var(--color-text);
-    transition: all var(--transition-fast);
-  }
-
-  .hamburger::before {
-    top: -7px;
-  }
-
-  .hamburger::after {
-    bottom: -7px;
+    display: none;
   }
 
   /* Mobile Navigation */
   @media (max-width: 640px) {
-    header {
-      z-index: 200;
-    }
-
     .header-container {
       padding: var(--space-md);
     }
 
-    .nav-brand {
-      margin-right: auto;
-    }
-
-    .nav-toggle {
-      display: block;
-      z-index: 201;
+    .nav {
+      flex-wrap: nowrap;
+      gap: var(--space-sm);
     }
 
     .nav-links {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: var(--space-xl);
-      background: var(--color-bg);
-      opacity: 0;
-      visibility: hidden;
-      transition: all var(--transition-base);
-      padding: var(--space-xl);
-      z-index: 150;
-    }
-
-    .nav-links.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: var(--space-lg) var(--space-xl);
-      background: var(--color-bg-elevated);
-      border-radius: var(--radius-lg);
-      border: none;
-      text-align: center;
-      font-size: var(--text-lg);
-      transition: all var(--transition-base);
-      width: 100%;
-      max-width: 300px;
-    }
-
-    .nav-links a:hover {
-      background: var(--color-accent-subtle);
-      color: var(--color-accent);
-      border: none;
-    }
-
-    .nav-toggle[aria-expanded="true"] .hamburger {
-      background: transparent;
-    }
-
-    .nav-toggle[aria-expanded="true"] .hamburger::before {
-      top: 0;
-      transform: rotate(45deg);
-    }
-
-    .nav-toggle[aria-expanded="true"] .hamburger::after {
-      bottom: 0;
-      transform: rotate(-45deg);
+      gap: var(--space-sm);
+      flex-wrap: nowrap;
     }
   }
 
@@ -194,33 +85,3 @@ import HeaderLink from "./HeaderLink.astro";
     }
   }
 </style>
-
-<script>
-  function setupMobileNav() {
-    const toggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    if (toggle && navLinks) {
-      // Remove old listeners by cloning
-      const newToggle = toggle.cloneNode(true);
-      toggle.parentNode?.replaceChild(newToggle, toggle);
-
-      newToggle.addEventListener("click", () => {
-        const isOpen = newToggle.getAttribute("aria-expanded") === "true";
-        newToggle.setAttribute("aria-expanded", (!isOpen).toString());
-        navLinks.classList.toggle("open");
-      });
-
-      // Close menu when clicking a link
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          newToggle.setAttribute("aria-expanded", "false");
-          navLinks.classList.remove("open");
-        });
-      });
-    }
-  }
-
-  setupMobileNav();
-  document.addEventListener("astro:page-load", setupMobileNav);
-</script>
