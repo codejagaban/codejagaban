@@ -17,15 +17,21 @@ import HeaderLink from "./HeaderLink.astro";
 </header>
 
 <script>
-  // Add a subtle blur only when scrolled for premium feel
-  const header = document.getElementById("site-header");
-  window.addEventListener("scroll", () => {
+  // Evaluate the header element dynamically on each event
+  // because Astro ViewTransitions swaps the DOM elements out.
+  function updateHeader() {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+
     if (window.scrollY > 20) {
-      header?.classList.add("scrolled");
+      header.classList.add("scrolled");
     } else {
-      header?.classList.remove("scrolled");
+      header.classList.remove("scrolled");
     }
-  });
+  }
+
+  window.addEventListener("scroll", updateHeader);
+  document.addEventListener("astro:page-load", updateHeader);
 </script>
 
 <style>
