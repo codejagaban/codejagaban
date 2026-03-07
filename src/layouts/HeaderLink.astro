@@ -20,47 +20,38 @@ const isActive =
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     text-decoration: none;
-    border: none;
-    padding: 0 1rem;
-    border-radius: var(--radius-full);
-    transition: all var(--transition-fast);
+    padding: 0.5rem 0;
+    transition: color var(--transition-base);
     position: relative;
+    font-family: var(--font-sans);
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
   }
 
   .nav-link:hover {
     color: var(--color-text);
-    border: none;
   }
 
   .nav-link.active {
     color: var(--color-text);
   }
 
-  /* Animated underline on hover */
   .nav-link::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--color-accent);
-    transition: all var(--transition-base);
-    transform: translateX(-50%);
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-text);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-base);
   }
 
-  .nav-link:hover::after {
-    width: 60%;
-  }
-
+  .nav-link:hover::after,
   .nav-link.active::after {
-    width: 60%;
-  }
-
-  @media (max-width: 640px) {
-    .nav-link {
-      font-size: var(--text-base);
-      padding: 0 0.75rem;
-    }
+    transform: scaleX(1);
+    transform-origin: left;
   }
 </style>
