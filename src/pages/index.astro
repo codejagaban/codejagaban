@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SocialLinks from "../components/SocialLinks.astro";
+import AnimatedShow from "../components/AnimatedShow";
 ---
 
 <Layout
@@ -11,238 +12,169 @@ import SocialLinks from "../components/SocialLinks.astro";
 >
   <section class="hero">
     <div class="container">
-      <div class="hero-content animate-fade-in">
-        <p class="greeting">Hey 👋🏼, I'm</p>
-        <h1 class="name">Trust Jamin</h1>
-        <p class="role">Senior Technical Writer & Developer Advocate</p>
-
-        <div class="intro">
-          <p>
-            I bridge connections between developers and state-of-the-art
-            technology. I build <a href="/projects">products</a>, write
-            technical documentation and <a href="/blog">tutorials</a>, and
-            contribute to
-            <a
-              href="http://github.com/codejagaban"
-              target="_blank"
-              rel="noopener noreferrer">open-source</a
-            > projects.
-          </p>
-          <p>
-            Currently building <a
-              href="https://github.com/codejagaban/techconfafrica"
-              target="_blank"
-              rel="noopener noreferrer">Tech Conf Africa</a
-            >.
-          </p>
+      <AnimatedShow client:load stagger>
+        <!-- The framer-motion stagger will automatically animate the direct children -->
+        <div>
+          <p class="greeting">Hello, I'm</p>
         </div>
 
-        <div class="cta-section">
-          <a href="/about" class="cta-link">
-            Learn more about me
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 12L10 8L6 4"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </a>
-          <SocialLinks size="md" />
+        <div>
+          <h1 class="name">Trust Jamin.</h1>
         </div>
-      </div>
+
+        <div>
+          <p class="role">Software Engineer & Developer Advocate</p>
+        </div>
+
+        <div>
+          <div class="intro">
+            <p>
+              Bridging the gap between <i>developers</i> and <i>technology</i>.
+              I build <a href="/projects" class="link-underline">solutions</a>,
+              write
+              <a href="/blog" class="link-underline">documentation</a>, and
+              contribute to
+              <a
+                href="http://github.com/codejagaban"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-underline">open-source</a
+              > projects.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="actions">
+            <a href="/about" class="about-link">
+              More about me
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 12L10 8L6 4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <div class="socials">
+              <SocialLinks size="md" />
+            </div>
+          </div>
+        </div>
+      </AnimatedShow>
     </div>
   </section>
 </Layout>
 
 <style>
   .hero {
-    padding: var(--space-3xl) 0;
-    min-height: 70vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
-  }
-
-  .hero-content {
-    max-width: 600px;
+    padding-top: var(--space-lg);
   }
 
   .greeting {
-    font-size: var(--text-lg);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-xs);
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-sm);
   }
 
   .name {
-    font-size: var(--text-4xl);
-    font-weight: 600;
-    margin: 0;
-    background: linear-gradient(
-      135deg,
-      var(--color-text) 0%,
-      var(--color-text-muted) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: var(--text-5xl);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.04em;
+    line-height: 1;
   }
 
   .role {
-    font-size: var(--text-xl);
-    color: var(--color-accent);
-    font-weight: 500;
-    margin: var(--space-sm) 0 var(--space-xl);
+    font-family: var(--font-sans);
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    font-weight: 300;
+    margin-bottom: var(--space-xl);
   }
 
   .intro {
-    margin-bottom: var(--space-xl);
+    max-width: 700px;
+    margin-bottom: var(--space-2xl);
   }
 
   .intro p {
-    font-size: var(--text-base);
-    line-height: 1.8;
-    color: var(--color-text-muted);
+    font-size: var(--text-2xl);
+    line-height: 1.4;
+    color: var(--color-text);
   }
 
-  .cta-section {
+  .intro i {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .intro a {
+    color: var(--color-text);
+  }
+
+  .actions {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    align-items: flex-start;
+    align-items: center;
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
   }
 
-  .cta-link {
+  .about-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--color-text-muted);
-    border: none;
-    transition: all var(--transition-base);
+    text-decoration: none;
+    transition: color var(--transition-base);
   }
 
-  .cta-link:hover {
-    color: var(--color-accent);
-    border: none;
+  .about-link:hover {
+    color: var(--color-text);
   }
 
-  .cta-link svg {
-    transition: transform var(--transition-fast);
+  .about-link svg {
+    transition: transform var(--transition-base);
   }
 
-  .cta-link:hover svg {
+  .about-link:hover svg {
     transform: translateX(4px);
   }
 
-  /* Highlights Section */
-  .highlights {
-    display: none;
+  .socials {
+    opacity: 0.5;
+    transition: opacity var(--transition-base);
   }
 
-  .section-title {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-xl);
-  }
-
-  /* Feature List - Interactive rows */
-  .feature-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .feature-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    padding: var(--space-lg) var(--space-md);
-    border: none;
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-base);
-    text-decoration: none;
-  }
-
-  .feature-item:hover {
-    background: var(--color-bg);
-    border: none;
-  }
-
-  .feature-item:hover .feature-icon {
-    background: var(--color-accent);
-    color: white;
-    transform: scale(1.05);
-  }
-
-  .feature-item:hover .feature-arrow {
+  .socials:hover {
     opacity: 1;
-    transform: translateX(0);
-    color: var(--color-accent);
   }
 
-  .feature-item:hover h3 {
-    color: var(--color-accent);
-  }
-
-  .feature-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--color-bg-hover);
-    border-radius: var(--radius-md);
-    color: var(--color-text-muted);
-    flex-shrink: 0;
-    transition: all var(--transition-base);
-  }
-
-  .feature-content {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .feature-content h3 {
-    font-size: var(--text-lg);
-    font-weight: 500;
-    margin: 0;
-    color: var(--color-text);
-    transition: color var(--transition-fast);
-  }
-
-  .feature-content p {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    margin: var(--space-xs) 0 0;
-  }
-
-  .feature-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-subtle);
-    opacity: 0;
-    transform: translateX(-8px);
-    transition: all var(--transition-base);
-  }
-
-  @media (max-width: 640px) {
-    .feature-item {
-      padding: var(--space-md);
+  @media (max-width: 768px) {
+    .intro p {
+      font-size: var(--text-xl);
     }
 
-    .feature-icon {
-      width: 40px;
-      height: 40px;
-    }
-
-    .feature-arrow {
-      display: none;
+    .actions {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-lg);
     }
   }
 </style>
