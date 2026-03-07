@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import data from "../data/talks.json";
+import AnimatedShow from "../components/AnimatedShow";
 ---
 
 <Layout
@@ -11,268 +12,219 @@ import data from "../data/talks.json";
 >
   <section class="talks">
     <div class="container">
-      <div class="talks-header animate-fade-in">
-        <h1>Speaking</h1>
-        <p class="intro">
-          I speak at conferences and meetups about developer experience,
-          technical writing, and web technologies. Here are some of my recent
-          talks.
-        </p>
-      </div>
+      <AnimatedShow client:load>
+        <div class="talks-header">
+          <h1>Speaking.</h1>
+          <p class="intro">
+            I speak at conferences and meetups about developer experience,
+            technical writing, and web technologies. Here are some of my recent
+            talks.
+          </p>
+        </div>
+      </AnimatedShow>
 
-      <div class="talks-list">
+      <AnimatedShow client:load stagger className="talks-list">
         {
-          data.map((talk, index) => (
-            <div class="talk-item" style={`--delay: ${index * 0.05}s`}>
-              <div class="talk-date">
+          data.map((talk) => (
+            <div class="talk-row">
+              <h2 class="talk-title">{talk.title}</h2>
+
+              <div class="talk-meta">
                 <span class="date-text">{talk.date}</span>
-              </div>
-              <div class="talk-content">
-                <h2 class="talk-title">{talk.title}</h2>
-                <div class="talk-meta">
+                <a
+                  href={talk.confLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="conference-link"
+                >
+                  {talk.confName}
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
+                {talk.slide && (
                   <a
-                    href={talk.confLink}
+                    href={talk.slide}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="conference-link"
+                    class="slide-link"
                   >
-                    {talk.confName}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-                        fill="currentColor"
-                      />
-                    </svg>
+                    Slides
                   </a>
-                  {talk.slide && (
-                    <a
-                      href={talk.slide}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="slide-link"
-                    >
-                      View slides
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </a>
-                  )}
-                </div>
+                )}
               </div>
             </div>
           ))
         }
-      </div>
+      </AnimatedShow>
 
-      <div class="invite-section">
-        <h2>Want me to speak at your event?</h2>
-        <p>I'd love to share my experiences with your community.</p>
-        <a href="mailto:hellotsjamin@gmail.com" class="invite-cta">
-          Get in touch
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6 12L10 8L6 4"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </a>
-      </div>
+      <AnimatedShow client:load delay={0.4}>
+        <div class="invite-section">
+          <h2>Want me to speak at your event?</h2>
+          <p>I'd love to share my experiences with your community.</p>
+          <a href="mailto:hellotsjamin@gmail.com" class="invite-cta">
+            Get in touch
+          </a>
+        </div>
+      </AnimatedShow>
     </div>
   </section>
 </Layout>
 
 <style>
   .talks {
-    padding: var(--space-2xl) 0 var(--space-3xl);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-3xl);
   }
 
   .talks-header {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
   }
 
   .talks-header h1 {
-    font-size: var(--text-3xl);
+    font-size: var(--text-5xl);
     margin-bottom: var(--space-md);
   }
 
   .intro {
-    font-size: var(--text-base);
+    font-size: var(--text-xl);
     color: var(--color-text-muted);
-    max-width: 500px;
+    max-width: 600px;
     margin: 0;
   }
 
-  /* Talks List - Timeline Style */
   .talks-list {
-    position: relative;
-    padding-left: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
   }
 
-  .talks-list::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-      to bottom,
-      var(--color-accent),
-      var(--color-border)
-    );
-    border-radius: var(--radius-full);
-  }
-
-  .talk-item {
-    position: relative;
-    padding: var(--space-lg) 0;
+  .talk-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: var(--space-md) 0;
     border-bottom: 1px solid var(--color-border);
-    animation: fadeIn 0.4s ease-out forwards;
-    animation-delay: var(--delay);
-    opacity: 0;
+    transition: all var(--transition-base);
   }
 
-  .talk-item:last-child {
-    border-bottom: none;
+  .talk-row:hover {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    border-bottom-color: var(--color-text);
+    background-color: var(--color-bg-elevated);
   }
 
-  .talk-item::before {
-    content: "";
-    position: absolute;
-    left: calc(-1 * var(--space-2xl) - 4px);
-    top: calc(var(--space-lg) + 8px);
-    width: 10px;
-    height: 10px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    border: 2px solid var(--color-bg);
+  .talk-title {
+    font-size: var(--text-3xl);
+    margin: 0;
+    line-height: 1.2;
+    flex: 1;
+    color: var(--color-text);
   }
 
-  .talk-date {
-    margin-bottom: var(--space-sm);
+  .talk-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-xs);
+    min-width: 200px;
+    text-align: right;
   }
 
   .date-text {
     font-size: var(--text-sm);
     color: var(--color-text-subtle);
-    font-weight: 500;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
-  .talk-title {
-    font-size: var(--text-lg);
-    margin: 0 0 var(--space-sm);
-    line-height: 1.4;
-  }
-
-  .talk-meta {
+  .conference-link {
+    font-size: var(--text-base);
+    color: var(--color-text);
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-  }
-
-  .conference-link,
-  .slide-link {
-    display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
-    transition: all var(--transition-fast);
+    transition: color var(--transition-fast);
   }
 
-  .conference-link:hover,
-  .slide-link:hover {
-    color: var(--color-accent);
+  .conference-link:hover {
+    color: var(--color-text-muted);
   }
 
   .slide-link {
-    padding: var(--space-xs) var(--space-md);
-    background: var(--color-bg-hover);
-    border-radius: var(--radius-full);
-    border: none;
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-top: var(--space-xs);
   }
 
   .slide-link:hover {
-    background: var(--color-accent-subtle);
-    border: none;
+    color: var(--color-text);
+    text-decoration: underline;
   }
 
-  /* Invite Section */
   .invite-section {
     margin-top: var(--space-3xl);
-    padding: var(--space-2xl);
-    background: var(--color-bg-elevated);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    text-align: center;
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--color-border);
   }
 
   .invite-section h2 {
-    font-size: var(--text-xl);
+    font-size: var(--text-3xl);
     margin: 0 0 var(--space-sm);
   }
 
   .invite-section p {
+    font-size: var(--text-lg);
     color: var(--color-text-muted);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
   .invite-cta {
     display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-md) var(--space-xl);
-    background: var(--color-text);
-    color: var(--color-bg);
-    border: none;
-    border-radius: var(--radius-full);
-    font-weight: 500;
-    transition: all var(--transition-base);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-text);
+    padding-bottom: 4px;
+    transition:
+      color var(--transition-base),
+      border-color var(--transition-base);
   }
 
   .invite-cta:hover {
-    background: var(--color-accent);
-    color: white;
-    border: none;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    color: var(--color-text-muted);
+    border-color: transparent;
   }
 
-  @media (max-width: 640px) {
-    .talks-list {
-      padding-left: var(--space-lg);
-    }
-
-    .talk-item::before {
-      left: calc(-1 * var(--space-lg) - 4px);
+  @media (max-width: 768px) {
+    .talk-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
     }
 
     .talk-meta {
-      flex-direction: column;
-      gap: var(--space-sm);
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .talk-title {
+      font-size: var(--text-2xl);
     }
   }
 </style>
