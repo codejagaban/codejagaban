@@ -1,5 +1,24 @@
 [
   {
+    "section": "Current Project",
+    "projects": [
+      {
+        "name": "Invoicer",
+        "description": "A minimal invoice generator with PDF export, reusable templates, email delivery, and fully private local data storage",
+        "link": "https://www.invoicer.cv/",
+        "technologies": [
+          "TypeScript",
+          "Next.js",
+          "shadcn/ui",
+          "TailwindCSS",
+          "NextAuth",
+          "Turso",
+          "Resend"
+        ]
+      }
+    ]
+  },
+  {
     "section": "Personal Projects",
     "projects": [
       {
