@@ -69,13 +69,13 @@ import AnimatedShow from "../components/AnimatedShow";
 
                       <div class="tech-stack">
                         {project.technologies
-                          .slice(0, 5)
+                          .slice(0, 4)
                           .map((tech: string) => (
                             <span class="tech-tag">{tech}</span>
                           ))}
-                        {project.technologies.length > 5 && (
+                        {project.technologies.length > 4 && (
                           <span class="tech-tag">
-                            +{project.technologies.length - 5}
+                            +{project.technologies.length - 4}
                           </span>
                         )}
                       </div>
