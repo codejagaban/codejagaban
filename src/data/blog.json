@@ -1,6 +1,48 @@
 {
   "posts": [
     {
+      "title": "How to upload files in Laravel with Uploadcare",
+      "link": "https://uploadcare.com/blog/upload-files-laravel-uploadcare/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Speculation Rules API: The new alternative to prerender",
+      "link": "https://uploadcare.com/blog/speculation-rules-api-guide/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How do I add signed uploads to an existing Next.js app?",
+      "link": "https://uploadcare.com/blog/how-to-add-signed-uploads-nextjs-uploadcare/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How do I handle file uploads in a Node.js Express API?",
+      "link": "https://uploadcare.com/blog/how-to-handle-file-uploads-nodejs-express-uploadcare/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How do I restrict file types in an Uploadcare uploader?",
+      "link": "https://uploadcare.com/blog/how-to-restrict-file-types-uploadcare-uploader/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "How do I use Uploadcare with React Hook Form?",
+      "link": "https://uploadcare.com/blog/how-to-use-uploadcare-react-hook-form/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Introducing the Uploadcare CLI: automate file workflows from the terminal",
+      "link": "https://uploadcare.com/blog/introducing-uploadcare-cli/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
       "title": "How to integrate Uploadcare with n8n for file uploads",
       "link": "https://uploadcare.com/blog/n8n-uploadcare-integration/",
       "date": "2026",
