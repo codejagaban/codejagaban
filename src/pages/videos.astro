@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import videos from "../data/videos.json";
+import AnimatedShow from "../components/AnimatedShow";
+
+interface Video {
+  title: string;
+  link: string;
+  channel?: string;
+  date?: string;
+}
+
+const videosByYear: Record<string, Video[]> = {};
+videos.forEach((v: Video) => {
+  const year = v.date ?? "Undated";
+  if (!videosByYear[year]) videosByYear[year] = [];
+  videosByYear[year].push(v);
+});
+
+const years = Object.keys(videosByYear).sort((a, b) => {
+  if (a === "Undated") return 1;
+  if (b === "Undated") return -1;
+  return Number(b) - Number(a);
+});
+---
+
+<Layout
+  title="Videos and YouTube content by Trust Jamin"
+  description="Watch talks, tutorials, and developer videos created by Trust Jamin Okpukoro."
+  keywords="Trust Jamin videos, YouTube, developer tutorials, conference talks, DevRel"
+  image="/image.png"
+>
+  <section class="page">
+    <div class="column">
+      <AnimatedShow client:load>
+        <h1 class="page-h1">Videos</h1>
+        <p class="page-lead">
+          Talks, tutorials, and developer videos I've recorded over the years.
+        </p>
+      </AnimatedShow>
+
+      {
+        years.map((year, i) => (
+          <AnimatedShow client:load delay={i * 0.05}>
+            <div id={`year-${year}`}>
+              <h2 class="label">
+                — {year}
+                <span class="label-meta">({videosByYear[year].length})</span>
+              </h2>
+              <ul class="link-list">
+                {videosByYear[year].map((video) => (
+                  <li>
+                    <a
+                      href={video.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="row"
+                    >
+                      <span class="row-title">{video.title}</span>
+                      {video.channel && (
+                        <span class="row-meta">
+                          {video.channel}
+                          <span class="arrow">↗</span>
+                        </span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimatedShow>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Videos and YouTube content by Trust Jamin",
+    "description": "Watch talks, tutorials, and developer videos created by Trust Jamin Okpukoro.",
+    "url": "https://jamin.sh/videos",
+    "author": {
+      "@type": "Person",
+      "name": "Trust Jamin Okpukoro",
+      "url": "https://jamin.sh"
+    }
+  }
+</script>
