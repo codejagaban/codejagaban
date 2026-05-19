@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 /* ===============================
    CSS Reset & Base
@@ -43,6 +43,7 @@
   /* Typography */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Playfair Display", "geist", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   /* Fluid Typography - significantly reduced */
   --text-xs: clamp(0.65rem, 0.5vw + 0.45rem, 0.75rem);
@@ -66,6 +67,7 @@
 
   /* Layout */
   --container-width: 1200px;
+  --container-narrow: 640px;
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -215,4 +217,169 @@ a:hover {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ===============================
+   Page Primitives (blended-minimal design)
+   =============================== */
+.column {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.page {
+  padding: var(--space-md) 0 var(--space-2xl);
+}
+
+.page-h1 {
+  font-family: var(--font-sans);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.page-lead {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+  max-width: none;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  text-transform: lowercase;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.label .label-meta {
+  color: var(--color-text-subtle);
+  margin-left: 0.5rem;
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.link-list li {
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.link-list li:last-child {
+  border-bottom: none;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: 0.65rem 0;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color var(--transition-base);
+}
+
+.row-title {
+  font-size: var(--text-base);
+  flex: 1;
+  min-width: 0;
+  transition: color var(--transition-base);
+}
+
+.row:hover .row-title {
+  text-decoration: underline;
+  text-decoration-color: var(--color-text);
+  text-underline-offset: 4px;
+}
+
+.row-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+
+.row:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.more {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: color var(--transition-base);
+}
+
+.more:hover {
+  color: var(--color-text);
+}
+
+.prose p {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  max-width: none;
+  margin-bottom: var(--space-sm);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose em,
+.prose i {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.prose a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-hover);
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-text);
+}
+
+@media (max-width: 540px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .row-meta {
+    font-size: 0.7rem;
+  }
 }
