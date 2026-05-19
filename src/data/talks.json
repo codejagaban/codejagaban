@@ -1,9 +1,16 @@
 [
   {
     "title": "Replacing form libraries with native web APIs",
+    "confName": "React Summit 2026",
+    "confLink": "https://reactsummit.com/#person-trust-jamin",
+    "slide": "https://reactsummit.com/#person-trust-jamin",
+    "date": "Jun 11-13, 2026"
+  },
+  {
+    "title": "Replacing form libraries with native web APIs",
     "confName": "CityJS Conf London 2026",
     "confLink": "https://london.cityjsconf.org/",
-    "slide": "https://gitnation.com/contents/bridging-the-gap-documenting-apis-for-humans-and-llm-agents",
+    "slide": "https://cityjs-slides.vercel.app/#/1",
     "date": "Apr 15-17, 2026"
   },
   {
