@@ -1,6 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AnimatedShow from "../components/AnimatedShow";
+
+const skills = [
+  {
+    label: "development",
+    items: "Node.js, Next.js, React.js, Astro, TypeScript, JavaScript, GoLang, GraphQL",
+  },
+  {
+    label: "infrastructure",
+    items: "Docker, AWS, PostgreSQL, MySQL, MongoDB",
+  },
+  {
+    label: "devrel & writing",
+    items: "Technical writing, API documentation, community building, content strategy",
+  },
+  {
+    label: "ai & agentic workflows",
+    items: "LLMs, prompt engineering, AI agents, RAG, LangChain, OpenAI",
+  },
+];
+
+const platforms = [
+  {
+    name: "Uploadcare",
+    desc: "Developer tutorials & guides",
+    link: "https://uploadcare.com/blog/author/trust-jamin/",
+  },
+  {
+    name: "Directus",
+    desc: "CMS integrations & tutorials",
+    link: "https://docs.directus.io/blog/",
+  },
+  {
+    name: "Apify",
+    desc: "Web scraping & automation",
+    link: "https://blog.apify.com/author/jamin/",
+  },
+  {
+    name: "Personal blog",
+    desc: "General tech insights",
+    link: "https://blog.jamin.sh/",
+  },
+  {
+    name: "Dev.to",
+    desc: "Community articles",
+    link: "https://dev.to/codejagaban",
+  },
+  {
+    name: "OpenReplay",
+    desc: "Frontend development",
+    link: "https://blog.openreplay.com/authors/trust-jamin",
+  },
+];
+
+const community = [
+  { role: "Co-founder", org: "Community Leads Africa" },
+  { role: "DevRel Community Lead", org: "Polygon Guild Lagos" },
+  { role: "Community Manager", org: "Notion Lagos" },
+  { role: "Champion", org: "Twilio" },
+  { role: "Organizer", org: "GDG Sapele" },
+];
 ---
 
 <Layout
@@ -9,314 +69,156 @@ import AnimatedShow from "../components/AnimatedShow";
   keywords="Trust Jamin, Trust Okpukoro, Trust Jamin Okpukoro, developer advocate, open source, technical Writing, community engagement, DevRel"
   image="/about.png"
 >
-  <section class="about">
-    <div class="container">
+  <section class="page">
+    <div class="column">
       <AnimatedShow client:load>
-        <div class="about-header">
-          <h1>About me.</h1>
-          <p class="lead">
-            Hey 👋🏼, I'm Trust Jamin — a software engineer with years of
-            experience building products that run on the web.
+        <h1 class="page-h1">About</h1>
+        <p class="page-lead">
+          Software engineer with years of experience building products that run
+          on the web.
+        </p>
+      </AnimatedShow>
+
+      <AnimatedShow client:load delay={0.1}>
+        <div class="prose">
+          <p>
+            Lately, you'll find me writing tutorials, documentation, or
+            occasionally about a bug I just fixed — anything that helps
+            developers ship better with modern tools.
+          </p>
+          <p>
+            I believe constant learning is the catalyst for personal and
+            professional growth. Adapting to change, overcoming challenges,
+            unlocking potential — I'm always working on the finest version of
+            myself.
+          </p>
+          <p>
+            Currently focused on <em>agentic engineering</em> and intelligent
+            <em>AI workflows</em>.
           </p>
         </div>
       </AnimatedShow>
 
-      <div class="about-content">
-        <AnimatedShow client:load delay={0.1}>
-          <div class="about-story">
-            <p>
-              Lately, you'll find me either writing a tutorial or documentation
-              (sometimes it's about a bug/fix I encountered) that can help
-              developers use modern tools to build cool applications 🙌🏼
-            </p>
-            <p>
-              I believe constant learning and improvement are the catalysts of
-              personal and professional growth, and they can empower an
-              individual to adapt to change, overcome challenges, and unlock
-              their full potential — so I'm always learning to become the finest
-              version of myself.
-            </p>
-            <p>
-              Currently, my primary focus and interests lie in <i
-                >Agentic engineering</i
-              > and developing intelligent <i>AI workflows</i>.
-            </p>
-            <p class="cta">
-              <a href="mailto:hellotsjamin@gmail.com" class="link-underline">
-                Shoot me an email
-              </a>
-            </p>
-          </div>
-        </AnimatedShow>
+      <AnimatedShow client:load stagger delay={0.15}>
+        <div>
+          <h2 class="label">— skills</h2>
+          <ul class="skill-list">
+            {
+              skills.map((s) => (
+                <li>
+                  <span class="skill-label">{s.label}</span>
+                  <span class="skill-items">{s.items}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
 
-        <AnimatedShow client:load stagger delay={0.2}>
-          <div class="section">
-            <h2>Skills & Tech</h2>
-            <div class="skills-grid">
-              <div class="skill-category">
-                <h3>Development</h3>
-                <p>
-                  Node.js, Next.js, React.js, Astro, TypeScript, JavaScript,
-                  GoLang, GraphQL
-                </p>
-              </div>
-              <div class="skill-category">
-                <h3>Infrastructure</h3>
-                <p>Docker, AWS, PostgreSQL, MySQL, MongoDB</p>
-              </div>
-              <div class="skill-category">
-                <h3>DevRel & Writing</h3>
-                <p>
-                  Technical Writing, API Documentation, Community Building,
-                  Content Strategy
-                </p>
-              </div>
-              <div class="skill-category">
-                <h3>AI & Agentic Workflows</h3>
-                <p>
-                  LLMs, Prompt Engineering, AI Agents, RAG, LangChain, OpenAI
-                </p>
-              </div>
-            </div>
-          </div>
-        </AnimatedShow>
+        <div>
+          <h2 class="label">— writing on</h2>
+          <ul class="link-list">
+            {
+              platforms.map((p) => (
+                <li>
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="row"
+                  >
+                    <span class="row-title">{p.name}</span>
+                    <span class="row-meta">
+                      {p.desc}
+                      <span class="arrow">↗</span>
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
 
-        <AnimatedShow client:load stagger delay={0.2}>
-          <div class="section">
-            <h2>Writing Activities</h2>
-            <div class="platform-list">
-              <a
-                href="https://uploadcare.com/blog/author/trust-jamin/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="platform-link"
-              >
-                <span class="platform-name">Uploadcare</span>
-                <span class="platform-desc">Developer tutorials & guides</span>
-              </a>
-              <a
-                href="https://docs.directus.io/blog/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="platform-link"
-              >
-                <span class="platform-name">Directus</span>
-                <span class="platform-desc">CMS integrations & tutorials</span>
-              </a>
-              <a
-                href="https://blog.apify.com/author/jamin/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="platform-link"
-              >
-                <span class="platform-name">Apify</span>
-                <span class="platform-desc">Web scraping & automation</span>
-              </a>
-              <a
-                href="https://blog.jamin.sh/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="platform-link"
-              >
-                <span class="platform-name">Personal Blog</span>
-                <span class="platform-desc">General tech insights</span>
-              </a>
-              <a
-                href="https://dev.to/codejagaban"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="platform-link"
-              >
-                <span class="platform-name">Dev.to</span>
-                <span class="platform-desc">Community articles</span>
-              </a>
-              <a
-                href="https://blog.openreplay.com/authors/trust-jamin"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="platform-link"
-              >
-                <span class="platform-name">OpenReplay</span>
-                <span class="platform-desc">Frontend development</span>
-              </a>
-            </div>
-          </div>
-        </AnimatedShow>
+        <div>
+          <h2 class="label">— community</h2>
+          <ul class="link-list">
+            {
+              community.map((c) => (
+                <li>
+                  <div class="row">
+                    <span class="row-title">{c.org}</span>
+                    <span class="row-meta">{c.role}</span>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
 
-        <AnimatedShow client:load stagger delay={0.2}>
-          <div class="section">
-            <h2>Community</h2>
-            <div class="community-list">
-              <div class="community-item">
-                <span class="community-role">Co-founder</span>
-                <span>Community Leads Africa</span>
-              </div>
-              <div class="community-item">
-                <span class="community-role">DevRel Community Lead</span>
-                <span>Polygon Guild Lagos</span>
-              </div>
-              <div class="community-item">
-                <span class="community-role">Community Manager</span>
-                <span>Notion Lagos</span>
-              </div>
-              <div class="community-item">
-                <span class="community-role">Champion</span>
-                <span>Twilio</span>
-              </div>
-              <div class="community-item">
-                <span class="community-role">Organizer</span>
-                <span>GDG Sapele</span>
-              </div>
-            </div>
-          </div>
-        </AnimatedShow>
-      </div>
+        <div>
+          <h2 class="label">— say hi</h2>
+          <p class="contact">
+            <a
+              href="mailto:hellotsjamin@gmail.com"
+              class="contact-link">hellotsjamin@gmail.com <span class="arrow">↗</span></a
+            >
+          </p>
+        </div>
+      </AnimatedShow>
     </div>
   </section>
 </Layout>
 
 <style>
-  .about {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-3xl);
-  }
-
-  .about-header {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .about-header h1 {
-    font-size: var(--text-5xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .lead {
-    font-size: var(--text-2xl);
-    color: var(--color-text);
-    line-height: 1.4;
-    max-width: 800px;
-  }
-
-  .about-story p {
-    font-size: var(--text-lg);
-    line-height: 1.8;
-    color: var(--color-text-muted);
-    max-width: 650px;
-  }
-
-  .cta {
-    margin-top: var(--space-xl);
-  }
-
-  .cta a {
-    font-size: var(--text-base);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 400;
-  }
-
-  .section {
-    margin-top: var(--space-3xl);
-    padding-top: var(--space-2xl);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .section h2 {
-    font-size: var(--text-3xl);
-    margin-top: 0;
-    margin-bottom: var(--space-xl);
-  }
-
-  /* Skills */
-  .skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .skill-category h3 {
-    font-size: var(--text-sm);
-    color: var(--color-text-subtle);
-    margin-bottom: var(--space-xs);
-    text-transform: uppercase;
-    font-family: var(--font-sans);
-    letter-spacing: 0.1em;
-  }
-
-  .skill-category p {
-    font-size: var(--text-lg);
-    color: var(--color-text);
+  .skill-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
-  }
-
-  /* Platforms */
-  .platform-list {
     display: flex;
     flex-direction: column;
+    gap: var(--space-sm);
   }
 
-  .platform-link {
+  .skill-list li {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--color-border);
-    text-decoration: none;
-    transition: all var(--transition-base);
+    flex-direction: column;
+    gap: 0.15rem;
   }
 
-  .platform-link:hover {
-    padding-left: var(--space-sm);
-    padding-right: var(--space-sm);
-    border-color: var(--color-text);
+  .skill-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-text-subtle);
+    text-transform: lowercase;
   }
 
-  .platform-name {
-    font-size: var(--text-xl);
+  .skill-items {
+    font-size: var(--text-base);
     color: var(--color-text);
-    font-weight: 400;
+    line-height: 1.6;
   }
 
-  .platform-desc {
-    font-size: var(--text-sm);
-    color: var(--color-text-subtle);
-    font-family: var(--font-sans);
+  .contact {
+    margin: 0;
+    max-width: none;
   }
 
-  /* Community */
-  .community-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .community-item {
-    display: flex;
+  .contact-link {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    text-decoration: none;
+    display: inline-flex;
     align-items: baseline;
-    justify-content: space-between;
-    padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: var(--text-xl);
+    gap: 0.35rem;
+    transition: color var(--transition-base);
   }
 
-  .community-role {
-    font-size: var(--text-sm);
-    color: var(--color-text-subtle);
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  @media (max-width: 640px) {
-    .platform-link,
-    .community-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-xs);
-    }
+  .contact-link:hover .arrow {
+    transform: translate(2px, -2px);
   }
 </style>
 
-<script type="application/ld+json">
+<script type="application/ld+json" is:inline>
   {
     "@context": "https://schema.org",
     "@type": "Person",

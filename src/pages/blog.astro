@@ -27,158 +27,53 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
   keywords="Trust Jamin, Trust Jamin Okpukoro, technology insights, programming articles, software development blog, web development, TypeScript, Node.js"
   image="/blog.png"
 >
-  <section class="blog">
-    <div class="container">
+  <section class="page">
+    <div class="column">
       <AnimatedShow client:load>
-        <div class="blog-header">
-          <h1>Articles.</h1>
-          <p class="stats">
-            {posts.length} articles written across {years.length} years
-          </p>
-        </div>
+        <h1 class="page-h1">Writing</h1>
+        <p class="page-lead">
+          {posts.length} articles across {years.length} years — tutorials, guides,
+          and the occasional bug-fix story.
+        </p>
       </AnimatedShow>
 
-      <div class="articles-container">
-        {
-          years.map((year, yearIndex) => (
-            <AnimatedShow client:load delay={yearIndex * 0.1}>
-              <div class="year-section" id={`year-${year}`}>
-                <div class="year-header">
-                  <h2>{year}</h2>
-                  <span class="count">{postsByYear[year].length}</span>
-                </div>
-
-                <div class="articles-list">
-                  {postsByYear[year].map((post, postIndex) => (
+      {
+        years.map((year, yearIndex) => (
+          <AnimatedShow client:load delay={yearIndex * 0.05}>
+            <div id={`year-${year}`}>
+              <h2 class="label">
+                — {year}
+                <span class="label-meta">({postsByYear[year].length})</span>
+              </h2>
+              <ul class="link-list">
+                {postsByYear[year].map((post) => (
+                  <li>
                     <a
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="article-item"
+                      class="row"
                     >
-                      <span class="article-title">{post.title}</span>
+                      <span class="row-title">{post.title}</span>
                       {post.company && (
-                        <span class="article-company">{post.company}</span>
+                        <span class="row-meta">
+                          {post.company}
+                          <span class="arrow">↗</span>
+                        </span>
                       )}
                     </a>
-                  ))}
-                </div>
-              </div>
-            </AnimatedShow>
-          ))
-        }
-      </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimatedShow>
+        ))
+      }
     </div>
   </section>
 </Layout>
 
-<style>
-  .blog {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-3xl);
-  }
-
-  .blog-header {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .blog-header h1 {
-    font-size: var(--text-5xl);
-    margin-bottom: var(--space-sm);
-  }
-
-  .stats {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    margin: 0;
-  }
-
-  /* Year Sections */
-  .year-section {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .year-header {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: var(--space-sm);
-  }
-
-  .year-header h2 {
-    font-size: var(--text-3xl);
-    margin: 0;
-  }
-
-  .count {
-    font-size: var(--text-sm);
-    color: var(--color-text-subtle);
-    font-family: var(--font-sans);
-  }
-
-  /* Articles List */
-  .articles-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .article-item {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: var(--space-sm) 0;
-    text-decoration: none;
-    color: inherit;
-    border-bottom: 1px solid var(--color-border);
-    transition: all var(--transition-base);
-  }
-
-  .article-item:hover {
-    padding-left: var(--space-sm);
-    padding-right: var(--space-sm);
-    border-color: var(--color-text);
-  }
-
-  .article-title {
-    font-size: var(--text-xl);
-    font-weight: 400;
-    transition: color var(--transition-base);
-  }
-
-  .article-item:hover .article-title {
-    color: var(--color-text-muted);
-  }
-
-  .article-company {
-    font-size: var(--text-xs);
-    color: var(--color-text-subtle);
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    min-width: 100px;
-    text-align: right;
-  }
-
-  @media (max-width: 640px) {
-    .blog {
-      padding-top: var(--space-xl);
-    }
-
-    .article-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-    }
-
-    .article-company {
-      text-align: left;
-    }
-  }
-</style>
-
-<script type="application/ld+json">
+<script type="application/ld+json" is:inline>
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",

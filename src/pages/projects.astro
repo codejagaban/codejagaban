@@ -2,6 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import projects from "../data/projects.json";
 import AnimatedShow from "../components/AnimatedShow";
+
+const labelFor = (section: string) => {
+  const map: Record<string, string> = {
+    "Current Project": "— now",
+    "Personal Projects": "— personal",
+    "Engineering Projects": "— engineering",
+  };
+  return map[section] ?? `— ${section.toLowerCase()}`;
+};
 ---
 
 <Layout
@@ -10,95 +19,69 @@ import AnimatedShow from "../components/AnimatedShow";
   keywords="Trust Jamin projects, web development, TypeScript, Next.js, Gatsby, software engineering"
   image="/projects.png"
 >
-  <section class="projects">
-    <div class="container">
+  <section class="page">
+    <div class="column">
       <AnimatedShow client:load>
-        <div class="projects-header">
-          <h1>Projects.</h1>
-          <p class="intro">
-            A collection of projects I've built and contributed to over the
-            years. From personal experiments to production applications.
-          </p>
-        </div>
+        <h1 class="page-h1">Projects</h1>
+        <p class="page-lead">
+          A collection of things I've built and contributed to — from
+          personal experiments to production applications.
+        </p>
       </AnimatedShow>
 
-      <div class="projects-content">
-        {
-          projects.map((section, i) => (
-            <AnimatedShow client:load delay={i * 0.1}>
-              <div
-                class="project-section"
-                id={section.section.replace(/\s+/g, "-").toLowerCase()}
-              >
-                <div class="section-header">
-                  <h2>{section.section}</h2>
-                  <span class="project-count">
-                    {section.projects.length} projects
-                  </span>
-                </div>
+      {
+        projects.map((section, i) => (
+          <AnimatedShow client:load delay={i * 0.08}>
+            <div id={section.section.replace(/\s+/g, "-").toLowerCase()}>
+              <h2 class="label">
+                {labelFor(section.section)}
+                <span class="label-meta">({section.projects.length})</span>
+              </h2>
 
-                <div class="projects-grid">
-                  {section.projects.map((project) => (
+              <ul class="project-list">
+                {section.projects.map((project) => (
+                  <li class="project">
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="project-card"
+                      class="project-row"
                     >
-                      <div class="project-header">
-                        <h3 class="project-name">{project.name}</h3>
-                        <svg
-                          class="arrow-icon"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M5 15L15 5M15 5H8M15 5V12"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
+                      <div class="project-head">
+                        <span class="project-name">{project.name}</span>
+                        <span class="arrow">↗</span>
                       </div>
-
-                      <p class="project-description">{project.description}</p>
-
+                      <p class="project-desc">{project.description}</p>
                       <div class="tech-stack">
-                        {project.technologies
-                          .slice(0, 4)
-                          .map((tech: string) => (
-                            <span class="tech-tag">{tech}</span>
-                          ))}
-                        {project.technologies.length > 4 && (
-                          <span class="tech-tag">
-                            +{project.technologies.length - 4}
+                        {project.technologies.slice(0, 6).map((tech: string) => (
+                          <span class="tech">{tech}</span>
+                        ))}
+                        {project.technologies.length > 6 && (
+                          <span class="tech tech-more">
+                            +{project.technologies.length - 6}
                           </span>
                         )}
                       </div>
                     </a>
-                  ))}
-                </div>
-              </div>
-            </AnimatedShow>
-          ))
-        }
-      </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimatedShow>
+        ))
+      }
 
-      <AnimatedShow client:load delay={0.2}>
-        <div class="github-cta">
-          <p>Want to see more of my code?</p>
-          <a
-            href="https://github.com/codejagaban"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="link-underline"
-          >
-            Visit my GitHub profile
-          </a>
+      <AnimatedShow client:load delay={0.3}>
+        <div>
+          <h2 class="label">— more code</h2>
+          <p class="github-line">
+            <a
+              href="https://github.com/codejagaban"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-link">github.com/codejagaban <span class="arrow">↗</span></a
+            >
+          </p>
         </div>
       </AnimatedShow>
     </div>
@@ -106,165 +89,116 @@ import AnimatedShow from "../components/AnimatedShow";
 </Layout>
 
 <style>
-  .projects {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-3xl);
-  }
-
-  .projects-header {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .projects-header h1 {
-    font-size: var(--text-5xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .intro {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    max-width: 600px;
+  .project-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
-  }
-
-  /* Project Sections */
-  .project-section {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-md);
-    margin-bottom: var(--space-xl);
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--color-text);
-  }
-
-  .section-header h2 {
-    font-size: var(--text-2xl);
-    margin: 0;
-  }
-
-  .project-count {
-    font-size: var(--text-sm);
-    color: var(--color-text-subtle);
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  /* Projects Grid */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--space-xl);
-  }
-
-  .project-card {
     display: flex;
     flex-direction: column;
-    padding: var(--space-lg) 0;
-    transition: all var(--transition-base);
-    border-top: 1px solid transparent;
-    text-decoration: none;
   }
 
-  .project-card:hover {
-    padding-left: var(--space-md);
-    border-left: 2px solid var(--color-text);
+  .project {
+    border-bottom: 1px dashed var(--color-border);
   }
 
-  .project-card:hover .project-name {
-    color: var(--color-text);
+  .project:last-child {
+    border-bottom: none;
   }
 
-  .project-card:hover .arrow-icon {
-    transform: translate(3px, -3px);
-    color: var(--color-text);
-  }
-
-  .project-header {
+  .project-row {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--space-md);
-  }
-
-  .project-name {
-    font-size: var(--text-xl);
-    font-weight: 400;
-    margin: 0;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.85rem 0;
+    text-decoration: none;
     color: var(--color-text);
     transition: color var(--transition-base);
   }
 
-  .arrow-icon {
-    flex-shrink: 0;
-    color: var(--color-text-subtle);
-    transition:
-      transform var(--transition-base),
-      color var(--transition-base);
+  .project-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-sm);
   }
 
-  .project-description {
+  .project-name {
+    font-family: var(--font-sans);
     font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    transition: color var(--transition-base);
+  }
+
+  .project-row:hover .project-name {
+    text-decoration: underline;
+    text-decoration-color: var(--color-text);
+    text-underline-offset: 4px;
+  }
+
+  .project-row:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .project-desc {
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
     line-height: 1.6;
-    flex-grow: 1;
-    margin: 0 0 var(--space-lg);
+    margin: 0;
+    max-width: none;
   }
 
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-top: auto;
+    gap: 0.5rem 0.85rem;
+    margin-top: 0.2rem;
   }
 
-  .tech-tag {
+  .tech {
+    font-family: var(--font-mono);
     font-size: var(--text-xs);
-    font-family: var(--font-sans);
-    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
-    text-transform: uppercase;
+    text-transform: lowercase;
+    letter-spacing: 0;
   }
 
-  .tech-tag:not(:last-child)::after {
-    content: "•";
-    margin-left: var(--space-xs);
-    color: var(--color-border-hover);
+  .tech-more {
+    color: var(--color-text-subtle);
   }
 
-  /* GitHub CTA */
-  .github-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: var(--space-3xl);
-    padding-top: var(--space-2xl);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .github-cta p {
-    color: var(--color-text-muted);
-    font-size: var(--text-lg);
-    margin: 0 0 var(--space-sm);
+  .github-line {
+    margin: 0;
+    max-width: none;
   }
 
   .github-link {
+    font-family: var(--font-mono);
     font-size: var(--text-base);
+    color: var(--color-text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    transition: color var(--transition-base);
   }
 
-  @media (max-width: 640px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
+  .github-link:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .arrow {
+    color: var(--color-text-subtle);
+  }
+
+  .project-row:hover .arrow,
+  .github-link:hover .arrow {
+    color: var(--color-text);
   }
 </style>
 
-<script type="application/ld+json">
+<script type="application/ld+json" is:inline>
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
