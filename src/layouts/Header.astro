@@ -41,20 +41,17 @@ import HeaderLink from "./HeaderLink.astro";
     top: 0;
     z-index: 100;
     background: transparent;
-    transition:
-      background var(--transition-base),
-      padding var(--transition-base);
-    padding-top: var(--space-lg);
+    transition: background var(--transition-base), border-color var(--transition-base);
+    padding-top: var(--space-md);
     padding-bottom: var(--space-md);
+    border-bottom: 1px solid transparent;
   }
 
   header.scrolled {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--color-border);
-    padding-top: var(--space-sm);
-    padding-bottom: var(--space-sm);
+    border-bottom-color: var(--color-border);
   }
 
   @media (prefers-color-scheme: dark) {
