@@ -1,7 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SocialLinks from "../components/SocialLinks.astro";
 import AnimatedShow from "../components/AnimatedShow";
+import blogData from "../data/blog.json";
+import projectsData from "../data/projects.json";
+import talksData from "../data/talks.json";
+
+const recentPosts = blogData.posts.slice(0, 5);
+const recentTalks = talksData.slice(0, 3);
+const engineering =
+  projectsData.find((p) => p.section === "Engineering Projects")?.projects ?? [];
+const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
 ---
 
 <Layout
@@ -10,67 +18,130 @@ import AnimatedShow from "../components/AnimatedShow";
   keywords="developer advocate, technical writer, DevRel, Trust Jamin, Trust Okpukoro, open source, API documentation, developer communities"
   image="/image.png"
 >
-  <section class="hero">
-    <div class="container">
+  <section class="page">
+    <div class="column">
       <AnimatedShow client:load stagger>
-        <!-- The framer-motion stagger will automatically animate the direct children -->
         <div>
-          <p class="greeting">Hello, I'm</p>
+          <h1 class="page-h1">Trust Jamin</h1>
+          <p class="role">Software engineer &amp; developer advocate.</p>
+        </div>
+
+        <div class="prose intro">
+          <p>
+            I bridge the gap between developers and technology — building
+            <a href="/projects">solutions</a>, writing
+            <a href="/blog">documentation</a>, and contributing to
+            <a
+              href="https://github.com/codejagaban"
+              target="_blank"
+              rel="noopener noreferrer">open source</a
+            >.
+          </p>
+          <p>
+            Currently exploring <em>agentic engineering</em> and intelligent
+            <em>AI workflows</em>.
+          </p>
         </div>
 
         <div>
-          <h1 class="name">Trust Jamin.</h1>
-        </div>
-
-        <div>
-          <p class="role">Software Engineer & Developer Advocate</p>
-        </div>
-
-        <div>
-          <div class="intro">
-            <p>
-              Bridging the gap between <i>developers</i> and <i>technology</i>.
-              I build <a href="/projects" class="link-underline">solutions</a>,
-              write
-              <a href="/blog" class="link-underline">documentation</a>, and
-              contribute to
-              <a
-                href="http://github.com/codejagaban"
+          <h2 class="label">— now</h2>
+          <ul class="bullets">
+            <li>Senior technical writer at Uploadcare.</li>
+            <li>Speaking at CityJS London 2026.</li>
+            <li>
+              Building <a
+                href="https://www.invoicer.cv/"
                 target="_blank"
-                rel="noopener noreferrer"
-                class="link-underline">open-source</a
-              > projects.
-            </p>
-            <p>
-              Currently, I'm exploring <i>Agentic engineering</i> and developing intelligent
-              <i>AI workflows</i>.
-            </p>
-          </div>
+                rel="noopener noreferrer">Invoicer</a
+              > on the side.
+            </li>
+          </ul>
         </div>
 
         <div>
-          <div class="actions">
-            <a href="/about" class="about-link">
-              More about me
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          <h2 class="label">— writing</h2>
+          <ul class="link-list">
+            {
+              recentPosts.map((post) => (
+                <li>
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="row"
+                  >
+                    <span class="row-title">{post.title}</span>
+                    <span class="row-meta">
+                      {post.company}
+                      <span class="arrow">↗</span>
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a href="/blog" class="more">all writing →</a>
+        </div>
+
+        <div>
+          <h2 class="label">— talks</h2>
+          <ul class="link-list">
+            {
+              recentTalks.map((talk) => (
+                <li>
+                  <a
+                    href={talk.confLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="row"
+                  >
+                    <span class="row-title">{talk.title}</span>
+                    <span class="row-meta">
+                      {talk.confName}
+                      <span class="arrow">↗</span>
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a href="/talks" class="more">all talks →</a>
+        </div>
+
+        <div>
+          <h2 class="label">— work</h2>
+          <p class="work-list">{workCompanies.join(" · ")}</p>
+          <a href="/projects" class="more">all projects →</a>
+        </div>
+
+        <div>
+          <h2 class="label">— elsewhere</h2>
+          <ul class="socials">
+            <li>
+              <a
+                href="https://github.com/codejagaban"
+                target="_blank"
+                rel="noopener noreferrer">github <span class="arrow">↗</span></a
               >
-                <path
-                  d="M6 12L10 8L6 4"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-              </svg>
-            </a>
-            <div class="socials">
-              <SocialLinks size="md" />
-            </div>
-          </div>
+            </li>
+            <li>
+              <a
+                href="https://x.com/codejagaban"
+                target="_blank"
+                rel="noopener noreferrer">twitter <span class="arrow">↗</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/codejagaban/"
+                target="_blank"
+                rel="noopener noreferrer">linkedin <span class="arrow">↗</span></a
+              >
+            </li>
+            <li>
+              <a href="mailto:hellotsjamin@gmail.com">email</a>
+            </li>
+          </ul>
         </div>
       </AnimatedShow>
     </div>
@@ -78,112 +149,84 @@ import AnimatedShow from "../components/AnimatedShow";
 </Layout>
 
 <style>
-  .hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    padding-top: var(--space-lg);
-  }
-
-  .greeting {
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: var(--text-xs);
-    color: var(--color-text-subtle);
-    margin-bottom: var(--space-sm);
-  }
-
-  .name {
-    font-size: var(--text-5xl);
-    margin-bottom: var(--space-xs);
-    letter-spacing: -0.04em;
-    line-height: 1;
-  }
-
   .role {
     font-family: var(--font-sans);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     color: var(--color-text-muted);
-    font-weight: 300;
-    margin-bottom: var(--space-xl);
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
   }
 
   .intro {
-    max-width: 700px;
-    margin-bottom: var(--space-2xl);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
-  .intro p {
-    font-size: var(--text-2xl);
-    line-height: 1.4;
+  .bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .bullets li {
+    font-size: var(--text-base);
+    line-height: 1.7;
     color: var(--color-text);
   }
 
-  .intro i {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  .intro a {
+  .bullets a {
     color: var(--color-text);
+    text-decoration-color: var(--color-border-hover);
   }
 
-  .actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2xl);
-    margin-top: var(--space-2xl);
-  }
-
-  .about-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    transition: color var(--transition-base);
-  }
-
-  .about-link:hover {
+  .work-list {
+    font-size: var(--text-base);
+    line-height: 1.7;
     color: var(--color-text);
-  }
-
-  .about-link svg {
-    transition: transform var(--transition-base);
-  }
-
-  .about-link:hover svg {
-    transform: translateX(4px);
+    margin: 0;
+    max-width: none;
   }
 
   .socials {
-    opacity: 0.5;
-    transition: opacity var(--transition-base);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
   }
 
-  .socials:hover {
-    opacity: 1;
+  .socials a {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    transition: color var(--transition-base);
   }
 
-  @media (max-width: 768px) {
-    .intro p {
-      font-size: var(--text-xl);
-    }
+  .socials a:hover {
+    color: var(--color-text);
+  }
 
-    .actions {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-lg);
+  .socials .arrow {
+    font-size: var(--text-xs);
+  }
+
+  .socials a:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
+  @media (max-width: 540px) {
+    .page-h1 {
+      font-size: var(--text-2xl);
     }
   }
 </style>
 
-<script type="application/ld+json">
+<script type="application/ld+json" is:inline>
   {
     "@context": "https://schema.org",
     "@type": "Person",
