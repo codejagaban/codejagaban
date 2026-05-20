@@ -16,7 +16,7 @@ const { href, title, description, date, tags, company } = Astro.props;
     <div class="card-header">
       <h3 class="card-title">
         {title}
-        {company && <span class="company">— {company}</span>}
+        {company && <span class="company">{company}</span>}
       </h3>
       <svg
         class="arrow-icon"
