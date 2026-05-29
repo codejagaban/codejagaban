@@ -1,0 +1,24 @@
+llm-txt: 1.0
+site: https://jamin.sh
+contact: hellotsjamin@gmail.com
+site-index: https://jamin.sh/site-index.json
+sitemap: https://jamin.sh/sitemap-index.xml
+format: llm-txt/1.0
+last-updated: 2026-05-28T20:40:00Z
+
+# Crawl policy
+crawl-policy: index, summarize, embed, cite
+preferred-content: full_text
+preferred-excerpt-length: 200-400
+include-selectors: main, article
+exclude-paths: /admin, /account, /private, /scripts, /.git, /node_modules
+rate-limit: 1req/s
+respect-robots: true
+
+# Attribution / reuse
+attribution-required: true
+attribution-format: "{title} — {url}"
+license: Copyright Trust Jamin. Indexing and summarization allowed with attribution.
+
+# Notes
+notes: For questions or special access (APIs, bulk export), contact the address above.

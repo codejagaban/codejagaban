@@ -87,3 +87,17 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
     }
   }
 </script>
+
+<script type="application/ld+json" is:inline>
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": posts.map((p) => ({
+      "@type": "Article",
+      "headline": p.title,
+      "url": p.link,
+      "datePublished": p.date,
+      "author": { "@type": "Person", "name": "Trust Jamin" },
+      "publisher": p.company ? { "@type": "Organization", "name": p.company } : { "@type": "Person", "name": "Trust Jamin" }
+    }))
+  })}
+</script>

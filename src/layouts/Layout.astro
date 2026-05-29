@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import Header from "./Header.astro";
+import Footer from "./Footer.astro";
 
 interface Props {
   title: string;
@@ -41,6 +42,43 @@ const socialImageURL = new URL(image, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
 
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${Astro.site}/#website`,
+            "url": Astro.site,
+            "name": title,
+            "description": description,
+            "publisher": { "@id": `${Astro.site}/#organization` }
+          },
+          {
+            "@type": "Organization",
+            "@id": `${Astro.site}/#organization`,
+            "name": "Trust Jamin",
+            "url": Astro.site,
+            "logo": { "@type": "ImageObject", "url": new URL('/favicon.svg', Astro.site).toString() }
+          },
+          {
+            "@type": "WebPage",
+            "@id": canonicalURL.toString(),
+            "url": canonicalURL.toString(),
+            "name": title,
+            "description": description,
+            "inLanguage": "en-US",
+            "isPartOf": { "@id": `${Astro.site}/#website` },
+            "primaryImageOfPage": { "@type": "ImageObject", "url": socialImageURL.toString() },
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "xpath": ["//main//h1", "//main//p[1]"]
+            }
+          }
+        ]
+      })}
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <ViewTransitions />
 
@@ -51,5 +89,6 @@ const socialImageURL = new URL(image, Astro.site);
     <main>
       <slot />
     </main>
+      <Footer />
   </body>
 </html>

@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "generate-site-index": "node ./scripts/generate-site-index.mjs",
     "preview": "astro preview",
+    "postbuild": "node ./scripts/generate-site-index.mjs",
     "astro": "astro"
   },
   "dependencies": {

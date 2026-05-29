@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+Sitemap: https://jamin.sh/sitemap-index.xml
+LLM: https://jamin.sh/llm.txt
