@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-28T22:29:17.017Z",
+  "generated": "2026-07-14T22:13:34.453Z",
   "site": {
     "url": "https://jamin.sh",
     "title": "Trust Jamin – Technical Writer & Developer Advocate",
@@ -33,7 +33,21 @@
   ],
   "posts": [
     {
-      "title": "Using React's useActionState for file uploads",
+      "title": "Auto-tag and organize images in n8n with Uploadcare object recognition",
+      "url": "https://uploadcare.com/blog/n8n-automatic-image-tagging-uploadcare/",
+      "date": "2026",
+      "source": "Uploadcare",
+      "excerpt": null
+    },
+    {
+      "title": "Convert documents to PDF automatically in n8n",
+      "url": "https://uploadcare.com/blog/n8n-document-conversion-pdf-uploadcare/",
+      "date": "2026",
+      "source": "Uploadcare",
+      "excerpt": null
+    },
+    {
+      "title": "Managing forms and file uploads in React using useActionState",
       "url": "https://uploadcare.com/blog/react-useactionstate-file-uploads/",
       "date": "2026",
       "source": "Uploadcare",
@@ -485,7 +499,7 @@
       "url": "https://blog.jamin.sh/how-to-deploy-directus-to-rendercom",
       "date": "2024",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "Directus is an open-source backend-as-a-service platform that offers a user-friendly interface that simplifies building fully functional backend services, APIs, and graphQL endpoints. This ease of use extends to Render, a fully managed cloud platform..."
     },
     {
       "title": "Building a Hotel Booking System with Directus, Next.js, and Stripe",
@@ -506,7 +520,7 @@
       "url": "https://blog.jamin.sh/what-is-cross-browser-compatibility-and-why-should-you-care",
       "date": "2024",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "Picture this scenario: You worked hard to build your company&#x27;s website or app, and it worked. It seems to be functioning. A few days later, the product team informed you that people reported that the website looked terrible on the Edge browser in Win..."
     },
     {
       "title": "How to build a news aggregator with Next.js, Resend, and Apify",
@@ -562,35 +576,35 @@
       "url": "https://blog.jamin.sh/improving-your-workflow-as-a-developer-with-bash-aliases",
       "date": "2023",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "Learn how using bash aliases can help you enhance your development process and create shortcuts for repetitive commands that are time-consuming."
     },
     {
       "title": "Mastering Generics in Typescript",
       "url": "https://blog.jamin.sh/mastering-generics-in-typescript",
       "date": "2023",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "Generics are one of the superpowers of TypeScript, and while they might look scary if one has little or no knowledge about them, they can be life-saving when understood and used correctly. Mastering generics in TypeScript can significantly enhance on..."
     },
     {
       "title": "The Differences Between Type and Interface in Typescript",
       "url": "https://blog.jamin.sh/the-differences-between-type-and-interface-in-typescript",
       "date": "2023",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "Typescript is a superset of JavaScript that incorporates static typing, making detecting errors simpler and producing more maintainable code.\nTypes and interfaces in Typescript represent two distinct methods for defining the structure and shape of va..."
     },
     {
       "title": "How to Send Custom Emails from Netlify: A Step-by-Step Guide",
       "url": "https://blog.jamin.sh/how-to-send-custom-emails-from-netlify-a-step-by-step-guide",
       "date": "2023",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "This article explains how to send custom emails from shared hosting while your site is hosted on Netlify.\nImagine this scenario: you have a website hosted on Netlify and want to send custom emails using your domain name, e.g., yourname@domain.com, so..."
     },
     {
       "title": "Effectiveness of Developer Relations Programs: A Study of MongoDB, AWS, and Vercel",
       "url": "https://blog.jamin.sh/effectiveness-of-developer-relations-programs-a-study-of-mongodb-aws-and-vercel",
       "date": "2023",
       "source": "Personal Blog",
-      "excerpt": null
+      "excerpt": "As part of a challenge I started called #90DaysofDevRel, I&#x27;ve been learning about developer relations for some weeks and was given the task of researching and writing a report regarding three developer companies, their developer relations programs, a..."
     },
     {
       "title": "How to Contribute to Community Leaders Cm-Tools Repository!",

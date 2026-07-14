@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "title": "Auto-tag and organize images in n8n with Uploadcare object recognition",
+      "link": "https://uploadcare.com/blog/n8n-automatic-image-tagging-uploadcare/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Convert documents to PDF automatically in n8n",
+      "link": "https://uploadcare.com/blog/n8n-document-conversion-pdf-uploadcare/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
       "title": "Managing forms and file uploads in React using useActionState",
       "link": "https://uploadcare.com/blog/react-useactionstate-file-uploads/",
       "date": "2026",
