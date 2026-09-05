@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import "lenis/dist/lenis.css";
 import "../styles/global.css";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
@@ -90,5 +91,22 @@ const socialImageURL = new URL(image, Astro.site);
       <slot />
     </main>
       <Footer />
+    <script>
+      import Lenis from "lenis";
+
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const lenis = new Lenis({
+          autoRaf: true,
+          duration: 1.6,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          wheelMultiplier: 0.85,
+        });
+
+        // Keep Astro view transitions snappy: jump, don't glide, on page swaps
+        document.addEventListener("astro:after-swap", () => {
+          lenis.scrollTo(0, { immediate: true });
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,6 +1,30 @@
 {
   "posts": [
     {
+      "title": "How to upload files in Framer using the Uploadcare component",
+      "link": "https://uploadcare.com/blog/how-to-upload-files-in-framer-uploadcare/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Using the Uploadcare CLI with AI coding agents (Cursor, Claude Code, GitHub Copilot, and Codex)",
+      "link": "https://uploadcare.com/blog/uploadcare-cli-ai-coding-agents/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Best video CDN providers in 2026: Ranked & reviewed",
+      "link": "https://uploadcare.com/blog/best-video-cdn-providers/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
+      "title": "Adaptive bitrate streaming in Uploadcare: 4K, H.265",
+      "link": "https://uploadcare.com/blog/adaptive-bitrate-streaming-4k-h265/",
+      "date": "2026",
+      "company": "Uploadcare"
+    },
+    {
       "title": "Auto-tag and organize images in n8n with Uploadcare object recognition",
       "link": "https://uploadcare.com/blog/n8n-automatic-image-tagging-uploadcare/",
       "date": "2026",
