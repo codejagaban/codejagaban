@@ -20,27 +20,27 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
 >
   <section class="page">
     <div class="column">
-      <AnimatedShow client:load stagger>
-        <div>
+      <AnimatedShow client:load stagger className="stack">
+        <div class="lede">
           <h1 class="page-h1">Trust Jamin</h1>
           <p class="role">Software engineer &amp; developer advocate.</p>
-        </div>
 
-        <div class="prose intro">
-          <p>
-            I bridge the gap between developers and technology, building
-            <a href="/projects">solutions</a>, writing
-            <a href="/blog">documentation</a>, and contributing to
-            <a
-              href="https://github.com/codejagaban"
-              target="_blank"
-              rel="noopener noreferrer">open source</a
-            >.
-          </p>
-          <p>
-            Currently exploring <em>agentic engineering</em> and intelligent
-            <em>AI workflows</em>.
-          </p>
+          <div class="prose">
+            <p>
+              I bridge the gap between developers and technology, building
+              <a href="/projects">solutions</a>, writing
+              <a href="/blog">documentation</a>, and contributing to
+              <a
+                href="https://github.com/codejagaban"
+                target="_blank"
+                rel="noopener noreferrer">open source</a
+              >.
+            </p>
+            <p>
+              Currently exploring <em>agentic engineering</em> and intelligent
+              <em>AI workflows</em>.
+            </p>
+          </div>
         </div>
 
         <div>
@@ -155,11 +155,6 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
     color: var(--color-text-muted);
     margin-top: var(--space-xs);
     margin-bottom: 0;
-  }
-
-  .intro {
-    margin-top: var(--space-md);
-    margin-bottom: var(--space-lg);
   }
 
   .bullets {

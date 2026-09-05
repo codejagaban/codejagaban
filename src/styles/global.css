@@ -228,10 +228,23 @@ a:hover {
 /* ===============================
    Page Primitives (blended-minimal design)
    =============================== */
+/* The column owns the vertical rhythm between sections with a flex gap,
+   not collapsing margins, so the spacing is identical on every page
+   regardless of how the sections are wrapped. */
 .column {
   max-width: var(--container-narrow);
   margin: 0 auto;
   padding: 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Same rhythm one level down, for wrappers that hold several sections. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
 .page {
@@ -252,8 +265,14 @@ a:hover {
   color: var(--color-text-muted);
   line-height: 1.7;
   margin-top: var(--space-xs);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0;
   max-width: none;
+}
+
+/* Opening block: title, lead and intro copy sit together as one unit,
+   then the column gap separates it from the sections below. */
+.lede .prose {
+  margin-top: var(--space-md);
 }
 
 .label {
@@ -261,7 +280,7 @@ a:hover {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-muted);
-  margin-top: var(--space-lg);
+  margin-top: 0;
   margin-bottom: var(--space-sm);
   text-transform: lowercase;
   letter-spacing: 0;
