@@ -81,7 +81,7 @@ import AnimatedShow from "../components/AnimatedShow";
   }
 
   .talk {
-    padding: 0.85rem 0;
+    padding: var(--space-row-lg) 0;
     border-bottom: 1px dashed var(--color-border);
   }
 
@@ -119,8 +119,8 @@ import AnimatedShow from "../components/AnimatedShow";
   .talk-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
-    margin-top: 0.3rem;
+    gap: var(--space-2xs) var(--space-md);
+    margin-top: var(--space-2xs);
   }
 
   .conf,
@@ -168,7 +168,7 @@ import AnimatedShow from "../components/AnimatedShow";
   @media (max-width: 540px) {
     .talk-head {
       flex-direction: column;
-      gap: 0.25rem;
+      gap: var(--space-3xs);
     }
   }
 </style>

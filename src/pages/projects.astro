@@ -108,8 +108,8 @@ const labelFor = (section: string) => {
   .project-row {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.85rem 0;
+    gap: var(--space-2xs);
+    padding: var(--space-row-lg) 0;
     text-decoration: none;
     color: var(--color-text);
     transition: color var(--transition-base);
@@ -144,7 +144,7 @@ const labelFor = (section: string) => {
   .project-desc {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.75;
     margin: 0;
     max-width: none;
   }
@@ -152,8 +152,8 @@ const labelFor = (section: string) => {
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 0.85rem;
-    margin-top: 0.2rem;
+    gap: var(--space-3xs) var(--space-sm);
+    margin-top: var(--space-3xs);
   }
 
   .tech {

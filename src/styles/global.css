@@ -248,7 +248,7 @@ a:hover {
 }
 
 .page {
-  padding: var(--space-md) 0 var(--space-2xl);
+  padding: var(--space-lg) 0 var(--space-2xl);
 }
 
 .page-h1 {
@@ -263,7 +263,7 @@ a:hover {
 .page-lead {
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-top: var(--space-xs);
   margin-bottom: 0;
   max-width: none;
@@ -313,7 +313,7 @@ a:hover {
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-sm);
-  padding: 0.65rem 0;
+  padding: var(--space-row) 0;
   text-decoration: none;
   color: var(--color-text);
   transition: color var(--transition-base);
@@ -354,7 +354,7 @@ a:hover {
 
 .more {
   display: inline-block;
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
@@ -369,7 +369,7 @@ a:hover {
 
 .prose p {
   font-size: var(--text-base);
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text);
   max-width: none;
   margin-bottom: var(--space-sm);
@@ -401,7 +401,7 @@ a:hover {
   .row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
+    gap: var(--space-3xs);
   }
 
   .row-meta {
