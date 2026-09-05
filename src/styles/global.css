@@ -54,14 +54,22 @@
   --text-4xl: clamp(2.1rem, 2vw + 1.7rem, 2.8rem);
   --text-5xl: clamp(2.8rem, 3vw + 2.2rem, 3.8rem);
 
-  /* Spacing - Generous */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 6rem;
-  --space-2xl: 8rem;
-  --space-3xl: 12rem;
+  /* Spacing - fluid, so the page breathes wider as the canvas grows.
+     Every step is >= its old fixed value at every viewport width, so
+     nothing anywhere on the site gets tighter. */
+  --space-3xs: 0.375rem;
+  --space-2xs: 0.625rem;
+  --space-xs: clamp(0.65rem, 0.35vw + 0.56rem, 0.9rem);
+  --space-sm: clamp(1.15rem, 0.5vw + 1rem, 1.5rem);
+  --space-md: clamp(2rem, 1.1vw + 1.7rem, 2.75rem);
+  --space-lg: clamp(4.25rem, 3.6vw + 3.4rem, 6.5rem);
+  --space-xl: clamp(6rem, 5vw + 4.7rem, 9.5rem);
+  --space-2xl: clamp(8rem, 7vw + 6rem, 13rem);
+  --space-3xl: clamp(12rem, 10vw + 9.2rem, 18rem);
+
+  /* Row rhythm - the air inside a list item */
+  --space-row: clamp(0.85rem, 0.5vw + 0.72rem, 1.15rem);
+  --space-row-lg: clamp(1.1rem, 0.7vw + 0.92rem, 1.5rem);
 
   /* Layout */
   --container-width: 1200px;
