@@ -1,0 +1,168 @@
+---
+// Canvas guides: a dashed crosshair that tracks the pointer, with a coordinate
+// readout pinned to the left edge like a ruler label.
+// Purely decorative: it sits above the page with pointer-events: none, never
+// replaces the native cursor, and is not rendered at all for coarse pointers
+// or when reduced motion is requested.
+---
+
+<div id="pointer-fx" aria-hidden="true">
+  <span class="pfx-guide pfx-guide-x"></span>
+  <span class="pfx-guide pfx-guide-y"></span>
+  <span class="pfx-readout"></span>
+</div>
+
+<style>
+  #pointer-fx {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  #pointer-fx.is-live {
+    opacity: 1;
+  }
+
+  /* The guides pick up the same dashed hairline the row separators use, so the
+     crosshair reads as part of the page rather than an overlay on top of it. */
+  .pfx-guide {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    will-change: transform;
+  }
+
+  .pfx-guide-x {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1px dashed var(--color-text-subtle);
+  }
+
+  .pfx-guide-y {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    border-left: 1px dashed var(--color-text-subtle);
+  }
+
+  #pointer-fx.is-active .pfx-guide {
+    opacity: 0.38;
+  }
+
+  /* Pinned to the left edge rather than floating beside the pointer, so it
+     never prints on top of the centred content column. */
+  .pfx-readout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--color-text-subtle);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    will-change: transform;
+  }
+
+  #pointer-fx.is-active .pfx-readout {
+    opacity: 0.75;
+  }
+
+  /* No pointer effects on touch, and none when reduced motion is requested. */
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    #pointer-fx {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const IDLE_MS = 1200;
+
+  let px = -9999;
+  let py = -9999;
+  let lastMove = 0;
+  let seen = false;
+
+  let root: HTMLElement | null = null;
+  let guideX: HTMLElement | null = null;
+  let guideY: HTMLElement | null = null;
+  let readout: HTMLElement | null = null;
+  let raf = 0;
+
+  const pad = (n: number) => String(Math.max(0, Math.round(n))).padStart(4, "0");
+
+  function frame() {
+    raf = requestAnimationFrame(frame);
+
+    if (guideX) guideX.style.transform = `translateY(${py.toFixed(1)}px)`;
+    if (guideY) guideY.style.transform = `translateX(${px.toFixed(1)}px)`;
+    if (readout) {
+      readout.style.transform = `translate(20px, ${(py - 14).toFixed(1)}px)`;
+      readout.textContent = `${pad(px)},${pad(py)}`;
+    }
+
+    if (root) {
+      root.classList.toggle("is-active", performance.now() - lastMove < IDLE_MS);
+    }
+  }
+
+  function onMove(e: PointerEvent) {
+    px = e.clientX;
+    py = e.clientY;
+    lastMove = performance.now();
+    if (!seen) {
+      seen = true;
+      root?.classList.add("is-live");
+    }
+  }
+
+  function setup() {
+    // ViewTransitions swaps the DOM, so the refs have to be re-acquired on
+    // every page load even though the listeners below are bound only once.
+    root = document.getElementById("pointer-fx");
+    if (!root) return;
+    guideX = root.querySelector(".pfx-guide-x");
+    guideY = root.querySelector(".pfx-guide-y");
+    readout = root.querySelector(".pfx-readout");
+    if (seen) root.classList.add("is-live");
+
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(frame);
+  }
+
+  function start() {
+    if (
+      !matchMedia("(pointer: fine)").matches ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    const w = window as unknown as { __pfxBound?: boolean };
+    if (!w.__pfxBound) {
+      w.__pfxBound = true;
+      addEventListener("pointermove", onMove, { passive: true });
+      // Pointer left the window: park the guides off-screen.
+      document.documentElement.addEventListener("pointerleave", () => {
+        px = -9999;
+        py = -9999;
+        lastMove = 0;
+      });
+    }
+
+    setup();
+  }
+
+  start();
+  document.addEventListener("astro:page-load", start);
+</script>

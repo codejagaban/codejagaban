@@ -4,6 +4,7 @@ import "lenis/dist/lenis.css";
 import "../styles/global.css";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
+import PointerFx from "../components/PointerFx.astro";
 
 interface Props {
   title: string;
@@ -91,6 +92,7 @@ const socialImageURL = new URL(image, Astro.site);
       <slot />
     </main>
       <Footer />
+    <PointerFx />
     <script>
       import Lenis from "lenis";
 
