@@ -67,6 +67,10 @@
   --space-2xl: clamp(8rem, 7vw + 6rem, 13rem);
   --space-3xl: clamp(12rem, 10vw + 9.2rem, 18rem);
 
+  /* Sticky bar padding - its own ramp, tighter than the page rhythm so the
+     nav never eats the viewport. */
+  --space-nav: clamp(1.15rem, 1.1vw + 0.85rem, 1.75rem);
+
   /* Row rhythm - the air inside a list item */
   --space-row: clamp(0.85rem, 0.5vw + 0.72rem, 1.15rem);
   --space-row-lg: clamp(1.1rem, 0.7vw + 0.92rem, 1.5rem);

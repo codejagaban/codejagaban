@@ -42,8 +42,8 @@ import HeaderLink from "./HeaderLink.astro";
     z-index: 100;
     background: transparent;
     transition: background var(--transition-base), border-color var(--transition-base);
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
+    padding-top: var(--space-nav);
+    padding-bottom: var(--space-nav);
     border-bottom: 1px solid transparent;
   }
 
@@ -95,9 +95,10 @@ import HeaderLink from "./HeaderLink.astro";
   }
 
   @media (max-width: 640px) {
+    /* Gaps tight enough to keep the wordmark and links on a single row. */
     .nav,
     .nav-links {
-      gap: var(--space-sm);
+      gap: var(--space-2xs) clamp(0.7rem, 3vw, 1.15rem);
     }
   }
 </style>
