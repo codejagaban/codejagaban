@@ -70,7 +70,8 @@ import HeaderLink from "./HeaderLink.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
   }
 
   .brand {
@@ -89,14 +90,12 @@ import HeaderLink from "./HeaderLink.astro";
   .nav-links {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
   }
 
   @media (max-width: 640px) {
-    .header-container {
-      padding: 0 var(--space-sm);
-    }
-
+    .nav,
     .nav-links {
       gap: var(--space-sm);
     }
