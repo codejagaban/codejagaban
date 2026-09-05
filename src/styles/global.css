@@ -54,14 +54,26 @@
   --text-4xl: clamp(2.1rem, 2vw + 1.7rem, 2.8rem);
   --text-5xl: clamp(2.8rem, 3vw + 2.2rem, 3.8rem);
 
-  /* Spacing - Generous */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 6rem;
-  --space-2xl: 8rem;
-  --space-3xl: 12rem;
+  /* Spacing - fluid, so the page breathes wider as the canvas grows.
+     Every step is >= its old fixed value at every viewport width, so
+     nothing anywhere on the site gets tighter. */
+  --space-3xs: 0.375rem;
+  --space-2xs: 0.625rem;
+  --space-xs: clamp(0.65rem, 0.35vw + 0.56rem, 0.9rem);
+  --space-sm: clamp(1.15rem, 0.5vw + 1rem, 1.5rem);
+  --space-md: clamp(2rem, 1.1vw + 1.7rem, 2.75rem);
+  --space-lg: clamp(4.25rem, 3.6vw + 3.4rem, 6.5rem);
+  --space-xl: clamp(6rem, 5vw + 4.7rem, 9.5rem);
+  --space-2xl: clamp(8rem, 7vw + 6rem, 13rem);
+  --space-3xl: clamp(12rem, 10vw + 9.2rem, 18rem);
+
+  /* Sticky bar padding - its own ramp, tighter than the page rhythm so the
+     nav never eats the viewport. */
+  --space-nav: clamp(1.15rem, 1.1vw + 0.85rem, 1.75rem);
+
+  /* Row rhythm - the air inside a list item */
+  --space-row: clamp(0.85rem, 0.5vw + 0.72rem, 1.15rem);
+  --space-row-lg: clamp(1.1rem, 0.7vw + 0.92rem, 1.5rem);
 
   /* Layout */
   --container-width: 1200px;
@@ -220,14 +232,27 @@ a:hover {
 /* ===============================
    Page Primitives (blended-minimal design)
    =============================== */
+/* The column owns the vertical rhythm between sections with a flex gap,
+   not collapsing margins, so the spacing is identical on every page
+   regardless of how the sections are wrapped. */
 .column {
   max-width: var(--container-narrow);
   margin: 0 auto;
   padding: 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Same rhythm one level down, for wrappers that hold several sections. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
 .page {
-  padding: var(--space-md) 0 var(--space-2xl);
+  padding: var(--space-lg) 0 var(--space-2xl);
 }
 
 .page-h1 {
@@ -242,10 +267,16 @@ a:hover {
 .page-lead {
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-top: var(--space-xs);
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0;
   max-width: none;
+}
+
+/* Opening block: title, lead and intro copy sit together as one unit,
+   then the column gap separates it from the sections below. */
+.lede .prose {
+  margin-top: var(--space-md);
 }
 
 .label {
@@ -253,7 +284,7 @@ a:hover {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-muted);
-  margin-top: var(--space-lg);
+  margin-top: 0;
   margin-bottom: var(--space-sm);
   text-transform: lowercase;
   letter-spacing: 0;
@@ -286,7 +317,7 @@ a:hover {
   align-items: baseline;
   justify-content: space-between;
   gap: var(--space-sm);
-  padding: 0.65rem 0;
+  padding: var(--space-row) 0;
   text-decoration: none;
   color: var(--color-text);
   transition: color var(--transition-base);
@@ -327,7 +358,7 @@ a:hover {
 
 .more {
   display: inline-block;
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-text-muted);
@@ -342,7 +373,7 @@ a:hover {
 
 .prose p {
   font-size: var(--text-base);
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--color-text);
   max-width: none;
   margin-bottom: var(--space-sm);
@@ -374,7 +405,7 @@ a:hover {
   .row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
+    gap: var(--space-3xs);
   }
 
   .row-meta {

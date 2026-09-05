@@ -42,8 +42,8 @@ import HeaderLink from "./HeaderLink.astro";
     z-index: 100;
     background: transparent;
     transition: background var(--transition-base), border-color var(--transition-base);
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
+    padding-top: var(--space-nav);
+    padding-bottom: var(--space-nav);
     border-bottom: 1px solid transparent;
   }
 
@@ -70,7 +70,8 @@ import HeaderLink from "./HeaderLink.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
   }
 
   .brand {
@@ -89,16 +90,15 @@ import HeaderLink from "./HeaderLink.astro";
   .nav-links {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
   }
 
   @media (max-width: 640px) {
-    .header-container {
-      padding: 0 var(--space-sm);
-    }
-
+    /* Gaps tight enough to keep the wordmark and links on a single row. */
+    .nav,
     .nav-links {
-      gap: var(--space-sm);
+      gap: var(--space-2xs) clamp(0.7rem, 3vw, 1.15rem);
     }
   }
 </style>

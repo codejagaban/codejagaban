@@ -54,4 +54,12 @@ const isActive =
     transform: scaleX(1);
     transform-origin: left;
   }
+
+  /* Ease the tracking on phones so the five links and the wordmark
+     still share one row instead of wrapping the header onto two. */
+  @media (max-width: 640px) {
+    .nav-link {
+      letter-spacing: 0.02em;
+    }
+  }
 </style>

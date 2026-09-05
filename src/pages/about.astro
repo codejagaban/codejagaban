@@ -72,34 +72,34 @@ const community = [
   <section class="page">
     <div class="column">
       <AnimatedShow client:load>
-        <h1 class="page-h1">About</h1>
-        <p class="page-lead">
-          Software engineer with years of experience building products that run
-          on the web.
-        </p>
-      </AnimatedShow>
+        <div class="lede">
+          <h1 class="page-h1">About</h1>
+          <p class="page-lead">
+            Software engineer with years of experience building products that
+            run on the web.
+          </p>
 
-      <AnimatedShow client:load delay={0.1}>
-        <div class="prose">
-          <p>
-            Lately, you'll find me writing tutorials, documentation, or
-            occasionally about a bug I just fixed. Anything that helps
-            developers ship better with modern tools.
-          </p>
-          <p>
-            I believe constant learning is the catalyst for personal and
-            professional growth. Adapting to change, overcoming challenges,
-            unlocking potential. I'm always working on the finest version of
-            myself.
-          </p>
-          <p>
-            Currently focused on <em>agentic engineering</em> and intelligent
-            <em>AI workflows</em>.
-          </p>
+          <div class="prose">
+            <p>
+              Lately, you'll find me writing tutorials, documentation, or
+              occasionally about a bug I just fixed. Anything that helps
+              developers ship better with modern tools.
+            </p>
+            <p>
+              I believe constant learning is the catalyst for personal and
+              professional growth. Adapting to change, overcoming challenges,
+              unlocking potential. I'm always working on the finest version of
+              myself.
+            </p>
+            <p>
+              Currently focused on <em>agentic engineering</em> and intelligent
+              <em>AI workflows</em>.
+            </p>
+          </div>
         </div>
       </AnimatedShow>
 
-      <AnimatedShow client:load stagger delay={0.15}>
+      <AnimatedShow client:load stagger delay={0.15} className="stack">
         <div>
           <h2 class="label">— skills</h2>
           <ul class="skill-list">
@@ -175,13 +175,13 @@ const community = [
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-md);
   }
 
   .skill-list li {
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: var(--space-3xs);
   }
 
   .skill-label {
@@ -194,7 +194,7 @@ const community = [
   .skill-items {
     font-size: var(--text-base);
     color: var(--color-text);
-    line-height: 1.6;
+    line-height: 1.75;
   }
 
   .contact {
