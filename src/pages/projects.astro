@@ -48,7 +48,7 @@ const labelFor = (section: string) => {
                       class="project-row"
                     >
                       <div class="project-head">
-                        <span class="project-name">{project.name}</span>
+                        <span class="project-name link-underline">{project.name}</span>
                         <span class="arrow">↗</span>
                       </div>
                       <p class="project-desc">{project.description}</p>
@@ -79,7 +79,7 @@ const labelFor = (section: string) => {
               href="https://github.com/codejagaban"
               target="_blank"
               rel="noopener noreferrer"
-              class="github-link">github.com/codejagaban <span class="arrow">↗</span></a
+              class="github-link link-underline">github.com/codejagaban <span class="arrow">↗</span></a
             >
           </p>
         </div>
@@ -131,10 +131,12 @@ const labelFor = (section: string) => {
     transition: color var(--transition-base);
   }
 
-  .project-row:hover .project-name {
-    text-decoration: underline;
-    text-decoration-color: var(--color-text);
-    text-underline-offset: 4px;
+  /* The whole row is the target, so the name's rule answers a hover anywhere
+     in it rather than only over the words themselves. */
+  .project-row:hover .link-underline,
+  .project-row:focus-visible .link-underline {
+    background-size: 100% 1px, 100% 1px;
+    background-position: left 0 bottom 0, left 0 bottom 0;
   }
 
   .project-row:hover .arrow {

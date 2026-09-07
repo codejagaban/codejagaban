@@ -126,7 +126,9 @@ const community = [
                     rel="noopener noreferrer"
                     class="row"
                   >
-                    <span class="row-title">{p.name}</span>
+                    <span class="row-title">
+                      <span class="link-underline">{p.name}</span>
+                    </span>
                     <span class="row-meta">
                       {p.desc}
                       <span class="arrow">↗</span>
@@ -145,7 +147,9 @@ const community = [
               community.map((c) => (
                 <li>
                   <div class="row">
-                    <span class="row-title">{c.org}</span>
+                    <span class="row-title">
+                      <span class="link-underline">{c.org}</span>
+                    </span>
                     <span class="row-meta">{c.role}</span>
                   </div>
                 </li>
