@@ -7,9 +7,8 @@ import talksData from "../data/talks.json";
 
 const recentPosts = blogData.posts.slice(0, 5);
 const recentTalks = talksData.slice(0, 3);
-const engineering =
-  projectsData.find((p) => p.section === "Engineering Projects")?.projects ?? [];
-const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
+const currentProjects =
+  projectsData.find((p) => p.section === "Current Project")?.projects ?? [];
 ---
 
 <Layout
@@ -59,22 +58,22 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
         </div>
 
         <div>
-          <h2 class="label">— writing</h2>
+          <h2 class="label">— current projects</h2>
           <ul class="link-list">
             {
-              recentPosts.map((post) => (
+              currentProjects.map((project) => (
                 <li>
                   <a
-                    href={post.link}
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="row"
                   >
                     <span class="row-title">
-                      <span class="link-underline">{post.title}</span>
+                      <span class="link-underline">{project.name}</span>
                     </span>
                     <span class="row-meta">
-                      {post.company}
+                      building now
                       <span class="arrow">↗</span>
                     </span>
                   </a>
@@ -82,7 +81,7 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
               ))
             }
           </ul>
-          <a href="/blog" class="more link-underline">all writing →</a>
+          <a href="/projects" class="more link-underline">all projects →</a>
         </div>
 
         <div>
@@ -113,9 +112,30 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
         </div>
 
         <div>
-          <h2 class="label">— work</h2>
-          <p class="work-list">{workCompanies.join(" · ")}</p>
-          <a href="/projects" class="more link-underline">all projects →</a>
+          <h2 class="label">— writing</h2>
+          <ul class="link-list">
+            {
+              recentPosts.map((post) => (
+                <li>
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="row"
+                  >
+                    <span class="row-title">
+                      <span class="link-underline">{post.title}</span>
+                    </span>
+                    <span class="row-meta">
+                      {post.company}
+                      <span class="arrow">↗</span>
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <a href="/blog" class="more link-underline">all writing →</a>
         </div>
 
         <div>
@@ -182,14 +202,6 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
   .bullets a {
     color: var(--color-text);
     text-decoration-color: var(--color-border-hover);
-  }
-
-  .work-list {
-    font-size: var(--text-base);
-    line-height: 1.9;
-    color: var(--color-text);
-    margin: 0;
-    max-width: none;
   }
 
   .socials {
