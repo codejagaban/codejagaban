@@ -67,15 +67,12 @@ const currentProjects =
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="row"
+                    class="row current-project-row"
                   >
                     <span class="row-title">
                       <span class="link-underline">{project.name}</span>
                     </span>
-                    <span class="row-meta">
-                      building now
-                      <span class="arrow">↗</span>
-                    </span>
+                    <span class="project-description">{project.description}</span>
                   </a>
                 </li>
               ))
@@ -202,6 +199,19 @@ const currentProjects =
   .bullets a {
     color: var(--color-text);
     text-decoration-color: var(--color-border-hover);
+  }
+
+  .current-project-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3xs);
+  }
+
+  .project-description {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.65;
   }
 
   .socials {
