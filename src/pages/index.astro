@@ -50,9 +50,9 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
             <li>Speaking at CityJS London 2026.</li>
             <li>
               Building <a
-                href="https://www.invoicer.cv/"
+                href="https://www.slotendar.com/"
                 target="_blank"
-                rel="noopener noreferrer">Invoicer</a
+                rel="noopener noreferrer">Slotendar</a
               > on the side.
             </li>
           </ul>
@@ -70,7 +70,9 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
                     rel="noopener noreferrer"
                     class="row"
                   >
-                    <span class="row-title">{post.title}</span>
+                    <span class="row-title">
+                      <span class="link-underline">{post.title}</span>
+                    </span>
                     <span class="row-meta">
                       {post.company}
                       <span class="arrow">↗</span>
@@ -80,7 +82,7 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
               ))
             }
           </ul>
-          <a href="/blog" class="more">all writing →</a>
+          <a href="/blog" class="more link-underline">all writing →</a>
         </div>
 
         <div>
@@ -95,7 +97,9 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
                     rel="noopener noreferrer"
                     class="row"
                   >
-                    <span class="row-title">{talk.title}</span>
+                    <span class="row-title">
+                      <span class="link-underline">{talk.title}</span>
+                    </span>
                     <span class="row-meta">
                       {talk.confName}
                       <span class="arrow">↗</span>
@@ -105,13 +109,13 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
               ))
             }
           </ul>
-          <a href="/talks" class="more">all talks →</a>
+          <a href="/talks" class="more link-underline">all talks →</a>
         </div>
 
         <div>
           <h2 class="label">— work</h2>
           <p class="work-list">{workCompanies.join(" · ")}</p>
-          <a href="/projects" class="more">all projects →</a>
+          <a href="/projects" class="more link-underline">all projects →</a>
         </div>
 
         <div>
@@ -121,25 +125,28 @@ const workCompanies = ["Uploadcare", ...engineering.map((p) => p.name)];
               <a
                 href="https://github.com/codejagaban"
                 target="_blank"
-                rel="noopener noreferrer">github <span class="arrow">↗</span></a
+                rel="noopener noreferrer"
+                class="link-underline">github <span class="arrow">↗</span></a
               >
             </li>
             <li>
               <a
                 href="https://x.com/codejagaban"
                 target="_blank"
-                rel="noopener noreferrer">twitter <span class="arrow">↗</span></a
+                rel="noopener noreferrer"
+                class="link-underline">twitter <span class="arrow">↗</span></a
               >
             </li>
             <li>
               <a
                 href="https://www.linkedin.com/in/codejagaban/"
                 target="_blank"
-                rel="noopener noreferrer">linkedin <span class="arrow">↗</span></a
+                rel="noopener noreferrer"
+                class="link-underline">linkedin <span class="arrow">↗</span></a
               >
             </li>
             <li>
-              <a href="mailto:hellotsjamin@gmail.com">email</a>
+              <a href="mailto:hellotsjamin@gmail.com" class="link-underline">email</a>
             </li>
           </ul>
         </div>

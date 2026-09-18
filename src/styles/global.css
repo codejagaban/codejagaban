@@ -178,6 +178,62 @@ a:hover {
   text-decoration-color: var(--color-text);
 }
 
+/* The underline wipe.
+
+   The header links draw their rule in from the left on hover and pull it back
+   out to the right on leave. Every link on the site borrows that one gesture so
+   the page answers the pointer the same way everywhere.
+
+   It is painted as a background band rather than a pseudo-element for two
+   reasons: the band follows the text across a line break, so a title that wraps
+   keeps its rule under the words instead of under the box a flex row hands it,
+   and it is anchored to the content box, so a link that pads itself out for a
+   tap target still gets the rule under the type rather than down at the edge of
+   the padding.
+
+   --underline-rest paints a second, permanent band beneath the wipe, for links
+   that have to read as links before the pointer ever arrives. */
+.link-underline,
+.prose a {
+  text-decoration: none;
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(
+      var(--underline-rest, transparent),
+      var(--underline-rest, transparent)
+    );
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: 0% 1px, 100% 1px;
+  background-position: right 0 bottom 0, left 0 bottom 0;
+  transition:
+    background-size var(--transition-base),
+    color var(--transition-base);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* The band grows from the left on the way in and retracts to the right on the
+   way out; swapping which edge it is anchored to is what gives the wipe its
+   direction. .is-on holds it open for a link that is already where it points. */
+.link-underline:hover,
+.link-underline:focus-visible,
+.link-underline.is-on,
+.prose a:hover,
+.prose a:focus-visible,
+.row:hover .link-underline,
+.row:focus-visible .link-underline {
+  background-size: 100% 1px, 100% 1px;
+  background-position: left 0 bottom 0, left 0 bottom 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-underline,
+  .prose a {
+    transition: none;
+  }
+}
+
 /* ===============================
    Container
    =============================== */
@@ -330,11 +386,6 @@ a:hover {
   transition: color var(--transition-base);
 }
 
-.row:hover .row-title {
-  text-decoration: underline;
-  text-decoration-color: var(--color-text);
-  text-underline-offset: 4px;
-}
 
 .row-meta {
   font-family: var(--font-mono);
@@ -390,15 +441,11 @@ a:hover {
   color: var(--color-text);
 }
 
+/* Body copy links keep a resting rule so they still read as links in a
+   paragraph; the wipe draws the full-strength line over it on hover. */
 .prose a {
   color: var(--color-text);
-  text-decoration: underline;
-  text-decoration-color: var(--color-border-hover);
-  text-underline-offset: 3px;
-}
-
-.prose a:hover {
-  text-decoration-color: var(--color-text);
+  --underline-rest: var(--color-border-hover);
 }
 
 @media (max-width: 540px) {
@@ -412,3 +459,4 @@ a:hover {
     font-size: 0.7rem;
   }
 }
+

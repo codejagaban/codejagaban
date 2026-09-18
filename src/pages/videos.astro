@@ -56,7 +56,9 @@ const years = Object.keys(videosByYear).sort((a, b) => {
                       rel="noopener noreferrer"
                       class="row"
                     >
-                      <span class="row-title">{video.title}</span>
+                      <span class="row-title">
+                        <span class="link-underline">{video.title}</span>
+                      </span>
                       {video.channel && (
                         <span class="row-meta">
                           {video.channel}

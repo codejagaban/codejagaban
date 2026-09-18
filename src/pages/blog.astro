@@ -54,7 +54,9 @@ const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
                       rel="noopener noreferrer"
                       class="row"
                     >
-                      <span class="row-title">{post.title}</span>
+                      <span class="row-title">
+                        <span class="link-underline">{post.title}</span>
+                      </span>
                       {post.company && (
                         <span class="row-meta">
                           {post.company}
