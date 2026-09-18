@@ -13,7 +13,7 @@ const isActive =
 
 <a
   href={href}
-  class:list={["nav-link", "link-underline", { active: isActive, "is-on": isActive }]}
+  class:list={["nav-link", { active: isActive }]}
 >
   <slot />
 </a>
@@ -25,6 +25,7 @@ const isActive =
     text-decoration: none;
     padding: 0.5rem 0;
     transition: color var(--transition-base);
+    position: relative;
     font-family: var(--font-sans);
     letter-spacing: 0.05em;
     text-transform: lowercase;
@@ -36,6 +37,32 @@ const isActive =
 
   .nav-link.active {
     color: var(--color-text);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-text);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-base);
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link::after {
+      transition: none;
+    }
   }
 
   /* Ease the tracking on phones so the five links and the wordmark
