@@ -7,8 +7,7 @@ import talksData from "../data/talks.json";
 
 const recentPosts = blogData.posts.slice(0, 5);
 const recentTalks = talksData.slice(0, 3);
-const currentProjects =
-  projectsData.find((p) => p.section === "Current Project")?.projects ?? [];
+const recentProjects = projectsData.flatMap((section) => section.projects).slice(0, 2);
 ---
 
 <Layout
@@ -58,10 +57,10 @@ const currentProjects =
         </div>
 
         <div>
-          <h2 class="label">— current projects</h2>
+          <h2 class="label">— recent projects</h2>
           <ul class="link-list">
             {
-              currentProjects.map((project) => (
+              recentProjects.map((project) => (
                 <li>
                   <a
                     href={project.link}
