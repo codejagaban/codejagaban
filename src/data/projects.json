@@ -3,16 +3,18 @@
     "section": "Current Project",
     "projects": [
       {
-        "name": "Invoicer",
-        "description": "A minimal invoice generator with PDF export, reusable templates, email delivery, and fully private local data storage",
-        "link": "https://www.invoicer.cv/",
+        "name": "Slotendar",
+        "description": "Appointment booking for service businesses, with public booking pages, a shared staff diary, payments, and automated reminders",
+        "link": "https://www.slotendar.com/",
         "technologies": [
           "TypeScript",
-          "Next.js",
-          "shadcn/ui",
-          "TailwindCSS",
-          "NextAuth",
-          "Turso",
+          "Next.js 16",
+          "React 19",
+          "Tailwind CSS",
+          "Neon Postgres",
+          "Drizzle",
+          "Clerk",
+          "Stripe Connect",
           "Resend"
         ]
       }
