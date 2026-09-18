@@ -69,7 +69,7 @@
 
   /* Sticky bar padding - its own ramp, tighter than the page rhythm so the
      nav never eats the viewport. */
-  --space-nav: clamp(1.15rem, 1.1vw + 0.85rem, 1.75rem);
+  --space-nav: clamp(0.7rem, 0.45vw + 0.58rem, 0.95rem);
 
   /* Row rhythm - the air inside a list item */
   --space-row: clamp(0.85rem, 0.5vw + 0.72rem, 1.15rem);
@@ -459,4 +459,3 @@ a:hover {
     font-size: 0.7rem;
   }
 }
-
