@@ -3,14 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import projects from "../data/projects.json";
 import AnimatedShow from "../components/AnimatedShow";
 
-const labelFor = (section: string) => {
-  const map: Record<string, string> = {
-    "Current Project": "— now",
-    "Personal Projects": "— personal",
-    "Engineering Projects": "— engineering",
-  };
-  return map[section] ?? `— ${section.toLowerCase()}`;
-};
+const allProjects = projects.flatMap((section) => section.projects);
 ---
 
 <Layout
@@ -29,47 +22,28 @@ const labelFor = (section: string) => {
         </p>
       </AnimatedShow>
 
-      {
-        projects.map((section, i) => (
-          <AnimatedShow client:load delay={i * 0.08}>
-            <div id={section.section.replace(/\s+/g, "-").toLowerCase()}>
-              <h2 class="label">
-                {labelFor(section.section)}
-                <span class="label-meta">({section.projects.length})</span>
-              </h2>
-
-              <ul class="project-list">
-                {section.projects.map((project) => (
-                  <li class="project">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="project-row"
-                    >
-                      <div class="project-head">
-                        <span class="project-name link-underline">{project.name}</span>
-                        <span class="arrow">↗</span>
-                      </div>
-                      <p class="project-desc">{project.description}</p>
-                      <div class="tech-stack">
-                        {project.technologies.slice(0, 6).map((tech: string) => (
-                          <span class="tech">{tech}</span>
-                        ))}
-                        {project.technologies.length > 6 && (
-                          <span class="tech tech-more">
-                            +{project.technologies.length - 6}
-                          </span>
-                        )}
-                      </div>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedShow>
-        ))
-      }
+      <AnimatedShow client:load delay={0.08}>
+        <ul class="project-list">
+          {
+            allProjects.map((project) => (
+              <li class="project">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-row"
+                >
+                  <div class="project-head">
+                    <span class="project-name link-underline">{project.name}</span>
+                    <span class="arrow">↗</span>
+                  </div>
+                  <p class="project-desc">{project.description}</p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </AnimatedShow>
 
       <AnimatedShow client:load delay={0.3}>
         <div>
@@ -149,25 +123,6 @@ const labelFor = (section: string) => {
     line-height: 1.75;
     margin: 0;
     max-width: none;
-  }
-
-  .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3xs) var(--space-sm);
-    margin-top: var(--space-3xs);
-  }
-
-  .tech {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    color: var(--color-text-subtle);
-    text-transform: lowercase;
-    letter-spacing: 0;
-  }
-
-  .tech-more {
-    color: var(--color-text-subtle);
   }
 
   .github-line {
